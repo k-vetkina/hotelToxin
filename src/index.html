@@ -35,7 +35,7 @@
 
       <div class="headerBlock">
 
-        <div class="imgLogo header__imgLogo"><img src="img\Logo.png" alt="Логотип TOXIN"></div>
+        <div class="imgLogo header__imgLogo"><img src="img\logo-toxin.png" alt="Логотип TOXIN"></div>
 
 
         <nav class="headerMenu">
@@ -105,6 +105,10 @@
           <input type="button" class="mainCard__button" value="Подобрать номер">
         </div>
 
+        <svg class="mainCard__button-arrow">
+          <use xlink:href="#iconArrow" />
+        </svg>
+
       </div>
 
       <span class="text">Лучшие номера для вашей работы, </span>
@@ -117,9 +121,9 @@
       <div class="footerRow">
         <section class="footerSectionBig">
 
-          <div class="imgLogo footer__imgLogo">
-            <img src="img\Logo.png" alt="Логотип TOXIN">
-          </div>
+          <a class="imgLogo footer__imgLogo">
+            <img src="img\logo-toxin.png" alt="Логотип TOXIN">
+          </a>
           <p class="footerSection__text">Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные
             взгляды»</p>
 
@@ -200,7 +204,7 @@
           <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0">
             <symbol id="iconArrow" viewBox="0 0 18 18">
               <path
-                d="M9 0.984375L17.0156 9L9 17.0156L7.59375 15.6094L13.1719 9.98438H0.984375V8.01562H13.1719L7.59375 2.39062L9 0.984375Z" fill="url(#paint0_linear)" />
+                d="M9 0.984375L17.0156 9L9 17.0156L7.59375 15.6094L13.1719 9.98438H0.984375V8.01562H13.1719L7.59375 2.39062L9 0.984375Z" />
               <defs>
                 <linearGradient id="paint0_linear" x1="9" y1="-13" x2="9" y2="31" gradientUnits="userSpaceOnUse">
                   <stop stop-color="#BC9CFF" />
@@ -214,10 +218,8 @@
             <use xlink:href="#iconArrow" />
           </svg>
           
-          <form>
-            <div class="inputWrap">
-              <br><input type="text" name="email" placeholder="Email" class="emailField"><br>
-            </div>
+          <form>            
+              <br><input type="text" name="email" placeholder="Email" class="emailField"><br>            
           </form>
 
         </section>
@@ -230,14 +232,14 @@
           <p class="footerSection__text">Copyright © 2018 Toxin отель. Все права зачищены.</p>
         </div>
         <div class="socialIcons">
-          <div class="socialIcons__icon">
+          <a class="socialIcons__icon" href="#0">
             <img src="../img/twitter.png" alt="иконка Твиттера">
-          </div>
-          <div class="socialIcons__icon">
+          </a>
+          <a class="socialIcons__icon" href="#0">
             <img src="../img/fb.png" alt="иконка Фейсбука">
-          </div>
-          <div class="socialIcons__icon"><img src="../img/insta.png" alt="иконка Инстаграма">
-          </div>
+          </a>
+          <a class="socialIcons__icon" href="#0"><img src="../img/insta.png" alt="иконка Инстаграма">
+          </a>
         </div>
       </div>
     </div>
