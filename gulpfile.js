@@ -9,6 +9,7 @@ const gulpif = require('gulp-if');
 const gcmq = require('gulp-group-css-media-queries');
 const less = require('gulp-less');
 const smartgrid = require('smart-grid');
+const pug = require('gulp-pug');
 
 const isDev = (process.argv.indexOf('--dev') !== -1);
 const isProd = !isDev;
@@ -62,6 +63,15 @@ function html(){
 			   .pipe(gulpif(isSync, browserSync.stream()));
 }
 
+function pugHTML(){
+	return gulp.src('./src/*.pug')
+	           .pipe(pug({
+					pretty: true
+				}))
+			   .pipe(gulp.dest('./build'))
+			   .pipe(gulpif(isSync, browserSync.stream()));
+}
+
 function watch(){
 	if(isSync){
 		browserSync.init({
@@ -94,7 +104,7 @@ function grid(done){
 }
 
 let build = gulp.series(clear, 
-	gulp.parallel(styles, img, fonts, html)
+	gulp.parallel(styles, img, fonts, html, pugHTML)
 );
 
 gulp.task('build', build);

@@ -1,16 +1,15 @@
-@import "smart-grid.less";
 
 .footerRow {
     .row-flex();
     margin-top: 104px;     
 };
 
-.footerSectionBig{
+.footerSectionAside {
     .col();
     .size(3); 
 };
 
-.footerSectionSmall{
+.footerSectionNav {
     .col();
     .size(2); 
 };
@@ -32,6 +31,12 @@
     padding: 10px 0;
 };
 
+.footerList__link {
+    color: #1F2041;
+    opacity: 0.5;
+    text-decoration: none;
+}
+
 .copyrightRow {
     display: flex;
     justify-content: space-between;
@@ -49,22 +54,51 @@
 };
 
 
-.emailField {
-    border-radius: 5px solid rgba(31, 32, 65, 1);
-    opacity: 0.25;
-    width: 236px;
-    padding: 10px;
-    position: relative;      
+.sendEmail {
+    max-width: 260px;
+    border: 1px solid rgba(31, 32, 65, 1);
+    border-radius: 4px;
+    opacity: 0.25; 
+    margin-top: 20px;        
 }
 
 .arrow {
     width: 18px;
     height: 18px;
-    fill: url(#paint0_linear);
-    position: relative;
-    top: 58px;
-    left: 220px;
+    fill: url(#paint0_linear);    
 }
+
+.btn__onlyArrow {
+    .btnReset();
+    position: relative;
+    background: transparent;
+    top: 4px;
+    left: 25px;
+}
+
+.sendEmail__field {     
+    padding: 10px;
+    border: none;  
+    outline: none;  
+}
+
+.socialIcons__icon-twitter {
+    width: 24px;
+    height: 24px;
+}
+
+.socialIcons__icon-fb {
+    width: 24px;
+    height: 24px;
+}
+
+.socialIcons__icon-insta {
+    width: 24px;
+    height: 24px;
+}
+
+
+
 
 
 
