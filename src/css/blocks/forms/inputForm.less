@@ -1,0 +1,58 @@
+.sendEmail {
+  display: flex; 
+  //max-width: 260px;    
+  margin-top: 20px;
+  position: relative;            
+}
+
+.sendEmail__field {
+  border: 1px solid rgba(31, 32, 65, 1);
+  border-radius: 4px;    
+  opacity: 0.25;        
+  padding: 10px;
+  width: 100%;       
+  outline: none;    
+}
+
+.sendEmail__field:focus{
+  opacity: 0.5;
+}
+
+.sendEmail__field:hover{
+  opacity: 0.5;
+}
+
+.sendEmail__field:hover::placeholder{
+  color: rgba(31, 32, 65, 1)  
+}
+
+.sendEmail__field:focus::placeholder{
+  color: rgba(31, 32, 65, 1)  
+}
+
+.arrow {
+  width: 18px;
+  height: 18px;
+  fill: url(#paint0_linear); 
+     
+}
+
+.btn__onlyArrow:focus {
+  opacity: 0.5;
+}
+
+.btn__onlyArrow:hover {
+  opacity: 0.5;
+}
+
+.btn__onlyArrow {
+  .btnReset();  
+  background: transparent;
+  position: absolute;
+  right: 10px;
+  bottom: 5px;
+  line-height: 18px;
+    
+}
+
+

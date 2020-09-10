@@ -1,0 +1,14 @@
+section
+  form.signIn(action='#', method='GET')
+    h1.title.signIn__title Войти      
+    input.sendEmail__field(type='email', name='email', placeholder='Email')
+    input.sendEmail__field(type='password', name='email', placeholder='Пароль')  
+      
+    button.btn.btn__withArrow(type='submit')
+      svg.btn__arrow
+        use(xlink:href='#iconArrow')
+      |             Войти
+    .container
+      p Нет аккаунта на Toxin?
+      a(class="btn__transparent" href="#0")
+          span Создать  
