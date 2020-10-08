@@ -6,16 +6,30 @@ main
         .mainCard__dates
           fieldset.mainCard__datesArrivals
             legend.mainCard__dates-title Прибытие
-            select#select_dates.mainCard__dates-select(name='dates')
-              option(value='choise') ДД.ММ.ГГГГ
+            input(type='text' class="datepicker-here")
+              
           fieldset.mainCard__datesDeparture
             legend.mainCard__dates-title Выезд
             select.mainCard__dates-select(name='dates')
               option(value='choise') ДД.ММ.ГГГГ
         fieldset.mainCard__guests
           legend.mainCard__dates-title Гости
-          select.mainCard__guests-select(name='guests')
-            option(value='choise') Сколько гостей
+          .select
+            .select-label
+              .select-title Сколько гостей
+              .select-arrow
+            .select-dropdown
+              .select-list
+                .select-option(data-min="0" data-val="0" data-max="10"  data-title="Взрослые")
+                .select-option(data-min="0" data-val="0" data-max="5" data-title="Дети")
+                .select-option(data-min="0" data-val="0" data-max="5" data-title="Младенцы")
+              .select-change
+                .select-button(data-action="clear" Очистить)
+                .select-button(data-action="apply" Применить)
+            input(type="hidden" class="select-output" name="select")      
+                
+                   
+            
         button.btn.btn__withArrow(type='submit')
           svg.btn__arrow
             use(xlink:href='#iconArrow')
