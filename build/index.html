@@ -93,11 +93,11 @@
     </div>
     <header class="header">
       <div class="wrapper">
-        <div class="headerBlock"><a class="imgLogo header__imgLogo">
+        <div class="header__row"><a class="imgLogo header-imgLogo">
             <svg class="imgLogo">
               <use xlink:href="#iconToxin"></use>
             </svg></a>
-          <nav class="headerMenu">
+          <nav class="header__menu">
             <ul class="menuList">
               <li class="menuList__item"><a class="menuList__link" href="#0">О нас</a></li>
               <li class="menuList__item"><a class="menuList__link" href="#0">Услуги</a><a class="menuList__link-more" href="#0">
@@ -108,10 +108,10 @@
               <li class="menuList__item"><a class="menuList__link" href="#0">Новости</a></li>
               <li class="menuList__item"><a class="menuList__link" href="#0">Соглашения</a><a class="menuList__link-more" href="#0">
                   <svg class="iconArrMore">
-                    <use xlink:href="#iconMore">        </use>
+                    <use xlink:href="#iconMore"></use>
                   </svg></a></li>
             </ul>
-          </nav><a class="btn__transparent" href="#0"><span>Войти      </span></a><a class="btn" href="#0">Зарегистрироваться</a>
+          </nav><a class="btn header-btn" href="#0">Зарегистрироваться</a><a class="btn__transparent header-btn__transparent" href="#0"><span>Войти</span></a>
         </div>
       </div>
     </header>
@@ -120,41 +120,41 @@
         <div class="wrapper">
           <form class="mainCard" action="#" method="GET">
             <h1 class="title mainCard__title">Найдём номера под ваши пожелания</h1>
-            <div class="mainCard__dates">
-              <fieldset class="mainCard__datesArrivals">
-                <legend class="mainCard__dates-title">Прибытие</legend>
-                <input class="datepicker-here" type="text">
+            <div class="datesHosting">
+              <fieldset class="datesHosting__arrivals">
+                <legend class="datesHosting__title">Прибытие</legend>
+                <input class="datesHosting__field datepicker-here" type="text" data-multiple-dates-separator=" - " placeholder="ДД.ММ.ГГГГ">
               </fieldset>
-              <fieldset class="mainCard__datesDeparture">
-                <legend class="mainCard__dates-title">Выезд</legend>
-                <select class="mainCard__dates-select" name="dates">
-                  <option value="choise">ДД.ММ.ГГГГ</option>
-                </select>
+              <div class="arrowOpen"></div>
+              <fieldset class="datesHosting__departure">
+                <legend class="datesHosting__title">Выезд</legend>
+                <input class="datesHosting__fieldEnd" type="text" placeholder="ДД.ММ.ГГГГ">
               </fieldset>
+              <div class="arrowOpen"></div>
             </div>
-            <fieldset class="mainCard__guests">
-              <legend class="mainCard__dates-title">Гости</legend>
-              <div class="select">
-                <div class="select-label">
-                  <div class="select-title">Сколько гостей</div>
-                  <div class="select-arrow"></div>
+            <fieldset class="guestHosting">
+              <legend class="guestHosting__title">Гости</legend>
+              <div class="guestHosting__select">
+                <div class="guestHosting__label">
+                  <div class="guestHosting__subtitle">Сколько гостей</div>
+                  <div class="arrowOpen arrowOpen-guests"></div>
                 </div>
-                <div class="select-dropdown">
-                  <div class="select-list">
-                    <div class="select-option" data-min="0" data-val="0" data-max="10" data-title="Взрослые"></div>
-                    <div class="select-option" data-min="0" data-val="0" data-max="5" data-title="Дети"></div>
-                    <div class="select-option" data-min="0" data-val="0" data-max="5" data-title="Младенцы"></div>
+                <div class="guestHosting__dropdown">
+                  <div class="guestHosting__list">
+                    <div class="guestHosting__list-option" data-min="0" data-val="0" data-max="10" data-title="Взрослые"></div>
+                    <div class="guestHosting__list-option" data-min="0" data-val="0" data-max="5" data-title="Дети"></div>
+                    <div class="guestHosting__list-option" data-min="0" data-val="0" data-max="5" data-title="Младенцы"></div>
                   </div>
-                  <div class="select-change">
-                    <div class="select-button" data-action="clear" Очистить></div>
-                    <div class="select-button" data-action="apply" Применить></div>
+                  <div class="changeState">
+                    <div class="changeState__btn" data-action="clear">Очистить</div>
+                    <div class="changeState__btn" data-action="apply">Применить</div>
                   </div>
                 </div>
-                <input class="select-output" type="hidden" name="select">
+                <input class="guestHosting__output" type="hidden" name="select">
               </div>
             </fieldset>
-            <button class="btn btn__withArrow" type="submit">
-              <svg class="btn__arrow">
+            <button class="btn btn-withArrow" type="submit">
+              <svg class="arrowBtn">
                 <use xlink:href="#iconArrow"></use>
               </svg>            Подобрать номер
             </button>
@@ -165,7 +165,7 @@
     </main>
     <footer class="footer">
       <div class="wrapper">
-        <div class="footerRow">
+        <div class="footerRow">   
           <section class="footerSectionAside">
             <svg class="imgLogo">
               <use xlink:href="#iconToxin"></use>
@@ -203,15 +203,16 @@
           </section>
           <section class="footerSectionAside">
             <h2 class="footerSection__title">Подписка</h2>
-            <p class="text footerSection__text">Получайте специальные предложения и новости сервиса</p>
-            <form class="sendEmail" action="#" method="GET">
-              <input class="sendEmail__field" type="email" name="email" placeholder="Email">
-              <button class="btn__onlyArrow" type="submit">
-                <svg class="arrow">
-                  <use xlink:href="#iconArrow"></use>
-                </svg>
-              </button>
-            </form>
+            <p class="text footerSection__text">Получайте специальные предложения и новости сервиса
+              <form class="sendEmail" action="#" method="GET">
+                <input class="sendEmail__field" type="email" name="email" placeholder="Email">
+                <button class="btn__onlyArrow" type="submit">
+                  <svg class="arrow">
+                    <use xlink:href="#iconArrow"></use>
+                  </svg>
+                </button>
+              </form>
+            </p>
           </section>
         </div>
       </div>

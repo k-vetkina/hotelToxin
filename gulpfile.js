@@ -97,8 +97,9 @@ function fonts(){
 }*/
 
 function pug2html(){
-	return gulp.src('./src/pug/index.pug')	
+	return gulp.src(['./src/pug/**/*.pug', '!src/pug/**/_*.pug'])	
 	           .pipe(pug({
+					//basedir: __dirname,
 					pretty: true
 				}))
 			   .pipe(gulp.dest('./build'))

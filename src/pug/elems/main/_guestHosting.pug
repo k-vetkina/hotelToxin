@@ -1,0 +1,13 @@
+fieldset.guestHosting
+  legend.guestHosting__title Гости
+  .guestHosting__select
+    .guestHosting__label
+      .guestHosting__subtitle Сколько гостей
+      .arrowOpen.arrowOpen-guests
+    .guestHosting__dropdown
+      .guestHosting__list
+        .guestHosting__list-option(data-min='0' data-val='0' data-max='10' data-title='Взрослые')
+        .guestHosting__list-option(data-min='0' data-val='0' data-max='5' data-title='Дети')
+        .guestHosting__list-option(data-min='0' data-val='0' data-max='5' data-title='Младенцы')
+      include _changeState
+    input.guestHosting__output(type='hidden' name='select') 

@@ -1,4 +1,5 @@
-.btn {      
+.btn {  
+    
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,9 +16,7 @@
   cursor: pointer;    
   text-decoration: none;
   padding: 5px; 
-  box-sizing: border-box;
-  margin-right: 20px; 
-     
+  box-sizing: border-box;      
 }
 
 .btn:active {
@@ -30,4 +29,19 @@
 
 .btn:focus {
   opacity: 0.5;
+};
+
+.btn-withArrow {   
+  width: 100%;
+  min-height: 44px; 
+  position: relative;     
+}
+
+.arrowBtn {
+  width: 18px;
+  height: 18px;
+  fill: white;    
+  position: absolute;
+  top: 12px;
+  right: 16px;
 };

@@ -56,9 +56,9 @@
     .datepicker--cell.-current-.-in-range- {
       color: #4EB5E6; }
   .datepicker--cell.-in-range- {
-    background: rgba(92, 196, 239, 0.1);
+    background: linear-gradient(@color_purple-light, @color_blue-light);    
     color: #4a4a4a;
-    border-radius: 0; }
+     }
     .datepicker--cell.-in-range-.-focus- {
       background-color: rgba(92, 196, 239, 0.2); }
   .datepicker--cell.-disabled- {
@@ -73,11 +73,12 @@
   .datepicker--cell.-range-from- {
     border: 1px solid rgba(92, 196, 239, 0.5);
     background-color: rgba(92, 196, 239, 0.1);
-    border-radius: 4px 0 0 4px; }
+    border-radius: 0 4px 4px 0; }
   .datepicker--cell.-range-to- {
     border: 1px solid rgba(92, 196, 239, 0.5);
     background-color: rgba(92, 196, 239, 0.1);
-    border-radius: 0 4px 4px 0; }
+    border-radius: 0 4px 4px 0;    
+  }
   .datepicker--cell.-range-from-.-range-to- {
     border-radius: 4px; }
   .datepicker--cell.-selected- {
@@ -176,7 +177,7 @@
 .datepicker {
   background: #fff;
   border: 1px solid #dbdbdb;
-  //box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   box-sizing: content-box;
   font-family: @default-font;  
@@ -229,7 +230,7 @@
   .-only-timepicker- .datepicker--content {
     display: none; }
 
-/*.datepicker--pointer {
+.datepicker--pointer {
   position: absolute;
   background: #fff;
   border-top: 1px solid #dbdbdb;
@@ -264,7 +265,7 @@
   .-left-bottom- .datepicker--pointer, .-right-bottom- .datepicker--pointer {
     bottom: 10px; }
   .-left-center- .datepicker--pointer, .-right-center- .datepicker--pointer {
-    top: calc(50% - 10px / 2); }*/
+    top: calc(50% - 10px / 2); }
 
 .datepicker--body {
   display: none; }
@@ -357,13 +358,14 @@
   display: -ms-flexbox;
   display: flex;
   padding: 4px;
-  border-top: 1px solid #efefef; }
+  border-top: 1px solid #efefef;
+ }
 
 .datepicker--button {
   color: #4EB5E6;
   cursor: pointer;
   border-radius: 4px;
-  -webkit-flex: 1;
+  /*-webkit-flex: 1;
       -ms-flex: 1;
           flex: 1;
   display: -webkit-inline-flex;
@@ -374,7 +376,7 @@
           justify-content: center;
   -webkit-align-items: center;
       -ms-flex-align: center;
-          align-items: center;
+          align-items: center;*/
   height: 32px; }
   .datepicker--button:hover {
     color: #4a4a4a;

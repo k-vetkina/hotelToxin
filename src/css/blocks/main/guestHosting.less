@@ -1,0 +1,70 @@
+.guestHosting__select {
+  display: block;
+  width: 100%;  
+  position: relative;
+  font-size: 13px;
+}
+
+.guestHosting__select .guestHosting__label {
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #929197;
+  padding: 10px 16px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.guestHosting__select .guestHosting__label .guestHosting__subtitle {
+  color: @color_blue-dark;
+opacity: 0.75;}
+
+.arrowOpen-guests::before {  
+  left: 50%;
+  top: 50%;  
+}
+
+.guestHosting__select .guestHosting__dropdown {
+  display: none;
+  width: 100%;
+  border-radius: 0 0 5px 5px;
+  border: 1px solid #929197;
+  border-top: 0;
+  padding: 5px;
+  padding-left: 16px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  font-weight: bold;
+  background-color: white;
+  z-index: 1;
+}
+
+.guestHosting__select.--drop .guestHosting__label {border-radius: 5px 5px 0 0;}
+.guestHosting__select.--drop .guestHosting__label .arrowOpen-guests {transform: rotate(180deg);}
+.guestHosting__select.--drop .guestHosting__dropdown {display: block;}
+
+.guestHosting__select .guestHosting__list {
+  display: block;
+  width: 100%;
+  max-height: 200px;
+  overflow: hidden auto;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+  color: @color_blue-dark;
+}
+
+.guestHosting__select .guestHosting__list-option {width: 100%;}
+
+.guestHosting__select .guestHosting__list-option:not(:last-child) {margin-bottom: 5px;}
+
+.guestHosting__select .guestHosting__list-option .-value {
+  width: 3ch;
+  text-align: center;
+  margin: 0 5px;
+}
+
+
+

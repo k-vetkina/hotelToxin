@@ -1,5 +1,3 @@
 form.sendEmail(action='#', method='GET')
   input.sendEmail__field(type='email', name='email', placeholder='Email')
-  button.btn__onlyArrow(type='submit')
-    svg.arrow
-      use(xlink:href='#iconArrow')
+  include _btn__onlyArrow
