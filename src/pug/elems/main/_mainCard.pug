@@ -2,7 +2,7 @@ form.mainCard(action='#', method='GET')
   h1.title.mainCard__title Найдём номера под ваши пожелания
   .datesHosting
     fieldset.datesHosting__arrivals
-      legend.datesHosting__title Прибытие
+      legend.titleForm.datesHosting__titleForm Прибытие
       //- для работы js использовала класс datepicker-here - проверить, будем ли работать кастомный класс
       input(type='text' class="datesHosting__field" data-multiple-dates-separator=" - " class="datepicker-here" placeholder="ДД.ММ.ГГГГ")
        
@@ -10,7 +10,7 @@ form.mainCard(action='#', method='GET')
           
         
     fieldset.datesHosting__departure
-      legend.datesHosting__title Выезд
+      legend.titleForm.datesHosting__titleForm Выезд
       
       //- для работы js использовала класс datepicker-here - проверить, будем ли работать кастомный класс
       input(type='text' class="datesHosting__fieldEnd" placeholder="ДД.ММ.ГГГГ")            

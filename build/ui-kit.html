@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1.0, width=device-width">
-    <title>Отель TOXIN</title>
+    <title>UI Kit</title>
     <link href="css/styles.css" rel="stylesheet">
-    <link rel="icon" href="../img/logo_sign.svg" sizes="any" type="image/svg+xml">
+    <!--link(rel="icon" href="../img/logo_sign.svg" sizes="any" type="image/svg+xml")-->
   </head>
   <body>
     <svg class="visually-hidden" xmlns="http://www.w3.org/2000/svg" width="0" height="0">
@@ -73,169 +73,56 @@
         </defs>
       </symbol>
     </svg>
-    <div class="debugGrid">
-      <div class="grid">
-        <div class="grid">
-          <div class="grid"></div>
-          <div class="grid"></div>
-          <div class="grid"></div>
-          <div class="grid"></div>
-          <div class="grid"></div>
-          <div class="grid"></div>
-          <div class="grid"></div>
-          <div class="grid"></div>
-          <div class="grid"></div>
-          <div class="grid"></div>
-          <div class="grid"></div>
-          <div class="grid"></div>
+    <section class="mainBack">
+      <form class="signIn" action="#" method="GET">
+        <h1 class="title signIn__title">Войти      </h1>
+        <input class="signIn__field" type="email" name="email" placeholder="Email">
+        <input class="signIn__field" type="password" name="email" placeholder="Пароль">
+        <button class="btn btn-withArrow btn-signInForm" type="submit">
+          <svg class="arrowBtn">
+            <use xlink:href="#iconArrow"></use>
+          </svg>            Войти
+        </button>
+        <div class="container">
+          <p>Нет аккаунта на Toxin?</p><a class="btn__transparent btn__transparent-signInForm" href="#0"><span>Создать  </span></a>
         </div>
-      </div>
-    </div>
-    <header class="header">
-      <div class="wrapper">
-        <div class="header__row"><a class="imgLogo header-imgLogo">
-            <svg class="imgLogo">
-              <use xlink:href="#iconToxin"></use>
-            </svg></a>
-          <nav class="header__menu">
-            <ul class="menuList">
-              <li class="menuList__item"><a class="menuList__link" href="#0">О нас</a></li>
-              <li class="menuList__item"><a class="menuList__link" href="#0">Услуги</a><a class="menuList__link-more" href="#0">
-                  <svg class="iconArrMore">
-                    <use xlink:href="#iconMore">         </use>
-                  </svg></a></li>
-              <li class="menuList__item"><a class="menuList__link" href="#0">Вакансии</a></li>
-              <li class="menuList__item"><a class="menuList__link" href="#0">Новости</a></li>
-              <li class="menuList__item"><a class="menuList__link" href="#0">Соглашения</a><a class="menuList__link-more" href="#0">
-                  <svg class="iconArrMore">
-                    <use xlink:href="#iconMore"></use>
-                  </svg></a></li>
-            </ul>
-          </nav><a class="btn header-btn" href="#0">Зарегистрироваться</a><a class="btn__transparent header-btn__transparent" href="#0"><span>Войти</span></a>
+      </form>
+    </section>
+    <section class="mainBack">
+      <form class="signIn" action="#" method="GET">
+        <h1 class="title signIn__title">Регистрация аккаунта      </h1>
+        <input class="fieldInput signIn__fieldInput" type="text" name="name" placeholder="Имя">
+        <input class="fieldInput signIn__fieldInput" type="text" name="surname" placeholder="Фамилия">
+        <div class="radioBtn signIn__radioBtn">
+          <label class="radioBtn__label"> 
+            <input class="radioBtn__input" type="radio" name="human"><span class="radioBtn__fake"></span><span class="radioBtn__text">Мужчина</span>
+          </label>
+          <label class="radioBtn__label">   
+            <input class="radioBtn__input" type="radio" name="human"><span class="radioBtn__fake"></span><span class="radioBtn__text">Женщина</span>
+          </label>
         </div>
-      </div>
-    </header>
-    <main>
-      <section class="mainSection">
-        <div class="wrapper">
-          <form class="mainCard" action="#" method="GET">
-            <h1 class="title mainCard__title">Найдём номера под ваши пожелания</h1>
-            <div class="datesHosting">
-              <fieldset class="datesHosting__arrivals">
-                <legend class="titleForm datesHosting__titleForm">Прибытие</legend>
-                <input class="datesHosting__field datepicker-here" type="text" data-multiple-dates-separator=" - " placeholder="ДД.ММ.ГГГГ">
-              </fieldset>
-              <div class="arrowOpen"></div>
-              <fieldset class="datesHosting__departure">
-                <legend class="titleForm datesHosting__titleForm">Выезд</legend>
-                <input class="datesHosting__fieldEnd" type="text" placeholder="ДД.ММ.ГГГГ">
-              </fieldset>
-              <div class="arrowOpen"></div>
-            </div>
-            <fieldset class="guestHosting">
-              <legend class="titleForm guestHosting__titleForm">Гости</legend>
-              <div class="guestHosting__select">
-                <div class="guestHosting__label">
-                  <div class="guestHosting__subtitle">Сколько гостей</div>
-                  <div class="arrowOpen arrowOpen-guests"></div>
-                </div>
-                <div class="guestHosting__dropdown">
-                  <div class="guestHosting__list">
-                    <div class="guestHosting__list-option" data-min="0" data-val="0" data-max="10" data-title="Взрослые"></div>
-                    <div class="guestHosting__list-option" data-min="0" data-val="0" data-max="5" data-title="Дети"></div>
-                    <div class="guestHosting__list-option" data-min="0" data-val="0" data-max="5" data-title="Младенцы"></div>
-                  </div>
-                  <div class="changeState">
-                    <div class="changeState__btn" data-action="clear">Очистить</div>
-                    <div class="changeState__btn" data-action="apply">Применить</div>
-                  </div>
-                </div>
-                <input class="guestHosting__output" type="hidden" name="select">
-              </div>
-            </fieldset>
-            <button class="btn btn-withArrow" type="submit">
-              <svg class="arrowBtn">
-                <use xlink:href="#iconArrow"></use>
-              </svg>            Подобрать номер
-            </button>
-          </form>
-          <p class="mainSection__text">Лучшие номера для вашей работы,<br>      отдыха и просто вдохновения</p>
+        <fieldset class="signIn__data">
+          <legend class="titleForm signIn__titleForm">Дата рождения      </legend>
+          <input class="fieldInput signIn__fieldInput dateBirth" type="text" placeholder="ДД.ММ.ГГГГ">
+        </fieldset>
+        <fieldset class="signIn__data">
+          <legend class="titleForm signIn__titleForm">Данные для входа в сервис      </legend>
+          <input class="fieldInput signIn__fieldInput" type="email" name="name" placeholder="Email">
+          <input class="fieldInput signIn__fieldInput" type="password" name="surname" placeholder="Пароль">
+        </fieldset>
+        <div class="switch signIn__switch">
+          <input class="switch__checkbox" type="checkbox"><span class="text switch__text">Получать спецпредложения   </span>
         </div>
-      </section>
-    </main>
-    <footer class="footer">
-      <div class="wrapper">
-        <div class="footerRow">   
-          <section class="footerSectionAside">
-            <svg class="imgLogo">
-              <use xlink:href="#iconToxin"></use>
-            </svg>
-            <p class="text footerSection__text">
-              Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные
-              взгляды»
-            </p>
-          </section>
-          <section class="footerSectionNav">
-            <h2 class="footerSection__title">Навигация</h2>
-            <ul class="footerList">
-              <li class="footerList__item"><a class="footerList__link" href="#0">О нас</a></li>
-              <li class="footerList__item"><a class="footerList__link" href="#0">Новости</a></li>
-              <li class="footerList__item"><a class="footerList__link" href="#0">Служба поддержки</a></li>
-              <li class="footerList__item"><a class="footerList__link" href="#0">Услуги</a></li>
-            </ul>
-          </section>
-          <section class="footerSectionNav">
-            <h2 class="footerSection__title">О нас</h2>
-            <ul class="footerList">
-              <li class="footerList__item"><a class="footerList__link" href="#0">О сервисе</a></li>
-              <li class="footerList__item"><a class="footerList__link" href="#0">Наша команда</a></li>
-              <li class="footerList__item"><a class="footerList__link" href="#0">Вакансии</a></li>
-              <li class="footerList__item"><a class="footerList__link" href="#0">Инвесторы</a></li>
-            </ul>
-          </section>
-          <section class="footerSectionNav">
-            <h2 class="footerSection__title">Служба поддержки</h2>
-            <ul class="footerList">
-              <li class="footerList__item"><a class="footerList__link" href="#0">Соглашения</a></li>
-              <li class="footerList__item"><a class="footerList__link" href="#0">Сообщества</a></li>
-              <li class="footerList__item"><a class="footerList__link" href="#0">Связь с нами</a></li>
-            </ul>
-          </section>
-          <section class="footerSectionAside">
-            <h2 class="footerSection__title">Подписка</h2>
-            <p class="text footerSection__text">Получайте специальные предложения и новости сервиса
-              <form class="sendEmail" action="#" method="GET">
-                <input class="sendEmail__field" type="email" name="email" placeholder="Email">
-                <button class="btn__onlyArrow" type="submit">
-                  <svg class="arrow">
-                    <use xlink:href="#iconArrow"></use>
-                  </svg>
-                </button>
-              </form>
-            </p>
-          </section>
+        <button class="btn btn-withArrow btn-signInForm" type="submit">
+          <svg class="arrowBtn">
+            <use xlink:href="#iconArrow"></use>
+          </svg>            Перейти к оплате
+        </button>
+        <div class="container">
+          <p>Уже есть аккаунт на Toxin</p><a class="btn__transparent btn__transparent-signInForm" href="#0"><span>Войти</span></a>
         </div>
-      </div>
-      <div class="wrapper">
-        <div class="copyrightRow">
-          <p class="text footerSection__text">Copyright © 2018 Toxin отель. Все права зачищены.</p>
-          <ul class="socialIcons">
-            <li class="socialIcons__item"><a class="socialIcons__icon" href="#0">
-                <svg class="socialIcons__icon-twitter">
-                  <use xlink:href="#iconTwitter"></use>
-                </svg></a></li>
-            <li class="socialIcons__item"><a class="socialIcons__icon" href="#0">
-                <svg class="socialIcons__icon-fb">
-                  <use xlink:href="#iconFb"></use>
-                </svg></a></li>
-            <li class="socialIcons__item"><a class="socialIcons__icon" href="#0">
-                <svg class="socialIcons__icon-insta">
-                  <use xlink:href="#iconInsta"></use>
-                </svg></a></li>
-          </ul>
-        </div>
-      </div>
-    </footer>
+      </form>
+    </section>
     <script src="js/scripts.js"></script>
   </body>
 </html>

@@ -120,7 +120,8 @@ function watch(){
 	if(isSync){
 		browserSync.init({
 	        server: {
-	            baseDir: "./build/",
+							baseDir: "./build/",
+							index: "ui-kit.html"
 	        }
 	    });
 	}

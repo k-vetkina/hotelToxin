@@ -1,0 +1,37 @@
+section.mainBack
+  form.signIn(action='#', method='GET')
+    h1.title.signIn__title Регистрация аккаунта      
+    input.fieldInput.signIn__fieldInput(type='text', name='name', placeholder='Имя')
+    input.fieldInput.signIn__fieldInput(type='text', name='surname', placeholder='Фамилия')
+
+    .radioBtn.signIn__radioBtn
+      label.radioBtn__label 
+        input(type='radio' class='radioBtn__input' name='human')
+        span.radioBtn__fake
+        span.radioBtn__text Мужчина
+      label.radioBtn__label    
+        input(type='radio' class='radioBtn__input' name='human')
+        span.radioBtn__fake
+        span.radioBtn__text Женщина
+
+    fieldset.signIn__data
+      legend.titleForm.signIn__titleForm Дата рождения      
+      input(type='text' class="fieldInput signIn__fieldInput dateBirth" placeholder="ДД.ММ.ГГГГ")
+
+    fieldset.signIn__data
+      legend.titleForm.signIn__titleForm Данные для входа в сервис      
+      input(type='email' name='name' class='fieldInput signIn__fieldInput'  placeholder='Email')
+      input(type='password' name='surname' class='fieldInput signIn__fieldInput' placeholder='Пароль')
+
+    .switch.signIn__switch
+      input.switch__checkbox(type="checkbox")
+      span.text.switch__text Получать спецпредложения   
+      
+    button.btn.btn-withArrow.btn-signInForm(type='submit')
+      svg.arrowBtn
+        use(xlink:href='#iconArrow')
+      |             Перейти к оплате
+    .container
+      p Уже есть аккаунт на Toxin
+      a(class="btn__transparent btn__transparent-signInForm" href="#0")
+          span Войти
