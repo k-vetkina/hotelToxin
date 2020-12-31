@@ -1,10 +1,44 @@
 
-.footerRow {
+.footer {
+
+  &__row {
     .row-flex();
     margin-top: 104px;
-        
+    margin-bottom: 26px;        
 };
 
+  &__aside {
+    .col();
+    .size(3); 
+};
+
+  &__nav {
+    .col();
+    .size(2); 
+};
+
+  &__title {
+    font-size: 12px;
+    font-weight: bold;
+    color: #1F2041;
+    text-transform: uppercase;
+};
+
+  &__text {
+    margin-top: 10px;
+    
+}
+
+  &__copyright {    
+    .col();
+    .size(12);
+    display: flex;    
+    align-items: baseline;        
+    margin-top: 127px; 
+         
+};
+
+};
 
 
 

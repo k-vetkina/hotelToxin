@@ -13,14 +13,14 @@ $('.guestHosting__select').find('.guestHosting__list .guestHosting__list-option'
   // Так как "изначальная" запись `.-option` у нас упрощённая, то мы наполняем её содержимым, для того же изменения значений.
   $(this).html('<div class="guestHosting__subtitle">'+$(this).attr('data-title')+'</div>\
     <div class="-input">\
-      <div class="changeState__btn'+(data.val <= data.min ? ' --disabled' : '')+'" data-action="minus">-</div>\
+      <div class="guestHosting__btn'+(data.val <= data.min ? ' --disabled' : '')+'" data-action="minus">-</div>\
       <div class="-value">'+data.val+'</div>\
-      <div class="changeState__btn'+(data.val >= data.max ? ' --disabled' : '')+'" data-action="plus">+</div>\
+      <div class="guestHosting__btn'+(data.val >= data.max ? ' --disabled' : '')+'" data-action="plus">+</div>\
     </div>');
 });
 
 // Обработчик кнопок..
-$('.guestHosting__select').on('click', '.changeState__btn', function(){
+$('.guestHosting__select').on('click', '.guestHosting__btn', function(){
   if(!$(this).hasClass('--disabled')) { // Если кнопка не имеет "запрет" на себе, то работаем дальше..
     let action = $(this).attr('data-action'); // Получаем "действие" кнопки
     if(action === 'minus' || action === 'plus') { // Если это кнопка `-` или `+`, что находится в .-option, то
@@ -38,19 +38,19 @@ $('.guestHosting__select').on('click', '.changeState__btn', function(){
       
       // Тут механика, которая "блокирует" кнопку, если value дошёл до min или max
       if(data.val > data.min && action === 'plus') 
-        option.find('.changeState__btn[data-action="minus"]').removeClass('--disabled');
+        option.find('.guestHosting__btn[data-action="minus"]').removeClass('--disabled');
       if(data.val <= data.min && action === 'minus') 
-        option.find('.changeState__btn[data-action="minus"]').addClass('--disabled');
+        option.find('.guestHosting__btn[data-action="minus"]').addClass('--disabled');
       if(data.val < data.max && action === 'minus') 
-        option.find('.changeState__btn[data-action="plus"]').removeClass('--disabled');
+        option.find('.guestHosting__btn[data-action="plus"]').removeClass('--disabled');
       if(data.val >= data.max && action === 'plus') 
-        option.find('.changeState__btn[data-action="plus"]').addClass('--disabled');
+        option.find('.guestHosting__btn[data-action="plus"]').addClass('--disabled');
         
       // Когда мы выше меняем value, то переписываем значения.
       option.attr('data-val', data.val);
       option.find('.-input .-value').text(data.val);
       // И если это дело меняется впервые, то мы показываем кнопку "Применить"
-      if($('.guestHosting__select').find('.changeState__btn[data-action="apply"]').hasClass('--disabled')) $('.guestHosting__select').find('.changeState__btn[data-action="apply"]').removeClass('--disabled');
+      if($('.guestHosting__select').find('.guestHosting__btn[data-action="apply"]').hasClass('--disabled')) $('.guestHosting__select').find('.guestHosting__btn[data-action="apply"]').removeClass('--disabled');
     }
     
     // Это действия кнопок "Очистить" и "Применить"
@@ -78,15 +78,15 @@ function NumGuests() {
   // Если гостей больше 0, то..
   if(guests > 0) {
     text = guests+' '+declOfNum(guests, ['гость', 'гостя', 'гостей']); // Оформляем сообщение
-    $('.guestHosting__select').find('.changeState__btn[data-action="clear"]').removeClass('--disabled'); // Показываем кнопку "Очистить"
+    $('.guestHosting__select').find('.guestHosting__btn[data-action="clear"]').removeClass('--disabled'); // Показываем кнопку "Очистить"
   } else {
     text = 'Сколько гостей'; // Дефолтное сообщение о количестве гостей, даём понять пользователю, что нужно заполнить этот "селектор"
-    $('.guestHosting__select').find('.changeState__btn[data-action="clear"]').addClass('--disabled'); // Скрываем кнопку "Очистить", ибо зачем она нам, ведь гостей нет..
+    $('.guestHosting__select').find('.guestHosting__btn[data-action="clear"]').addClass('--disabled'); // Скрываем кнопку "Очистить", ибо зачем она нам, ведь гостей нет..
   }
   //
   $('.guestHosting__select').find('.guestHosting__label .guestHosting__subtitle').text(text);
   $('.guestHosting__select').attr('data-guests', guests);
-  $('.guestHosting__select').find('.changeState__btn[data-action="apply"]').addClass('--disabled'); // прячем кнопку "применить", ибо мы только что изменили данные
+  $('.guestHosting__select').find('.guestHosting__btn[data-action="apply"]').addClass('--disabled'); // прячем кнопку "применить", ибо мы только что изменили данные
   //
   console.clear();
   console.info(output); // Выходные данные в виде объекта

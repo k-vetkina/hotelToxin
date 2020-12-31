@@ -1,6 +1,7 @@
 import datepicker from 'air-datepicker';
 
 $(function(){
+  let confirmBtn = $('.datepicker--button[data-action="apply"]')
 
 $('.datepicker-here').datepicker({
   range: true,
@@ -18,7 +19,7 @@ $('.datepicker-here').datepicker({
 },
 
 onShow: function (dp, animationCompleted) {
-   //let confirmBtn = $('.datepicker--button[data-action=apply]')
+   
    
 
   if (!animationCompleted) {
@@ -42,11 +43,24 @@ $('.datesHosting__field').datepicker({
   }
 });
 
-$('.datesHosting__field').on('click', function() {  
-    if ($el.is(':visible')) {    
-       $('.arrowOpen').addClass('active')} 
-       else {$('.arrowOpen').removeClass('active');}
-      });
+$('.datesHosting__field').on('click', function(){
+  $('.arrowMore').addClass('arrowMore-active')
+});
+
+$(document).mouseup(function(e){
+  const field = $(".datesHosting__field"),
+  datepicker = $(".datepicker"),
+  datepickerCh = $(".datepicker").find('.datepicker--button[data-action=apply]');
+  if (!field.is(e.target)
+  && field.has(e.target).length === 0
+  && !datepicker.is(e.target)    
+  && datepicker.not(datepickerCh).has(e.target).length === 0)
+
+  //|| !confirmBtn.is(e.target)
+   
+   {$('.arrowMore').removeClass('arrowMore-active');
+  }
+});
 
   
     
@@ -56,8 +70,5 @@ $('.datesHosting__field').on('click', function() {
 });
 
 
-/*$('.arrowOpen').addClass('active');
-  $(document).mouseup(function (e){
-    let field = $('.datesHosting__field'); 
-    if (!field.is(e.target)) {
-     $('.arrowOpen').removeClass('active');}*/
+
+  

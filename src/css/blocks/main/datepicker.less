@@ -1,0 +1,133 @@
+
+.datepicker {
+  border: 1px solid rgba(31, 32, 65, 0.25);
+  box-shadow: none;
+  color: rgba(31, 32, 65, 0.5);
+  width: 320px;
+
+  &--nav {
+    border-bottom: none;
+}
+
+  &--nav-title {
+    font-family: 'Quicksand';
+    font-size: 19px;
+    font-weight: 700;
+    color: @color_blue-dark;
+  }
+
+  &--nav-title i {
+    color: @color_blue-dark;
+    margin-left: 5px;
+  }
+
+  &--pointer {
+    display: none;
+  }
+
+  &--nav-action svg {
+    width: 18px;
+    height: 18px;
+    fill: url(#paint0_linear);
+  }
+
+  &--cell.-in-range- {
+    background: linear-gradient(rgba(188, 156, 255, 0.25), rgba(139, 164, 249, 0.25));
+    color: rgba(31, 32, 65, 0.5);
+    border-radius: 0;
+  }
+
+
+  &--cell.-range-from- {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  &--cell.-range-from-::before {
+    content: '';
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    border-radius: 50% 0 0 50%;
+    background: linear-gradient(rgba(188, 156, 255, 0.25), rgba(139, 164, 249, 0.25));
+  }
+
+  &--cell.-range-to- {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: relative;
+  }
+
+  &--cell.-range-to-::before {
+    content: '';
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    border-radius: 0 50% 50% 0;
+    background: linear-gradient(rgba(188, 156, 255, 0.25), rgba(139, 164, 249, 0.25));
+  }
+
+  &--day-name {
+    color: #BC9CFF;
+    font-family: @default-font;
+    font-weight: 700;
+    font-size: 12px;
+  }
+
+
+
+  &--cell {
+    height: 40px;
+  }
+
+  &--cell.-current- {
+    width: 40px;
+    height: 40px;
+  }
+
+  &--content {
+
+    padding: 31px 20px 20px 20px;
+  }
+
+  &--cell.-focus- {
+    background: linear-gradient(rgba(188, 156, 255, 0.25), rgba(139, 164, 249, 0.25));
+  }
+
+
+  &--cell.-current-.-focus- {
+    color: rgba(31, 32, 65, 0.5);
+  }
+
+  &--cell.-current-.-in-range- {
+    color: #66D2EA;
+  }
+
+  &--cell.-in-range- {
+
+    color: rgba(31, 32, 65, 0.5);
+  }
+
+  &--buttons {
+    justify-content: space-between;
+    border-top: none;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  &--button {
+    font-family: @default-font;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: @color_purple-light;
+  }
+
+  &--button:hover {
+    color: @color_blue-dark;
+    opacity: .5;
+    background: none;
+  }
+}

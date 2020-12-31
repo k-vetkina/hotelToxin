@@ -7,97 +7,12 @@
     margin-top: 70px;   
     margin-bottom: 386px;    
     padding: 40px 30px 30px 30px;
-    box-sizing: border-box;    
-}
-
-.mainCard__title {    
-    margin-bottom: 20px;
-  }
-
-.datesHosting {
-    display: flex;    
-    flex-wrap: nowrap;
-    justify-content: space-between;
-          
-}
-.datesHosting__arrivals {
-    width: 47%;
+    box-sizing: border-box;
     
-}
-
-.datesHosting__departure {
-    width: 47%; 
-}
-
-.datesHosting__field {    
-    width: 100%;
-    border-radius: 5px;
-    border: 1px solid @color_blue-dark;
-    opacity: 0.25;
-    padding: 10px;
-    box-sizing: border-box;
-    cursor: pointer;             
-}
-
-.datesHosting__fieldEnd {    
-    width: 100%;
-    border-radius: 5px;
-    border: 1px solid @color_blue-dark;
-    opacity: 0.25;
-    padding: 10px;
-    box-sizing: border-box;
-    cursor: pointer;             
-}
-
-.guestHosting {    
-    margin-top: 20px;
-    margin-bottom: 30.44px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-}
-
-.arrowOpen {
-    display: block;
-    width: 15px;
-    height: 15px;
-    opacity: .65;
-    position: relative;
-  }
-
-   
-  .arrowOpen:hover {opacity: 1;}
-  .active {opacity: 1;}
-  
-  .arrowOpen::before {
-    content: '';
-    display: block;
-    width: 50%;
-    height: 50%;
-    border-left: 2px solid #929197;
-    border-bottom: 2px solid #929197;
-    position: absolute;
-    right: 25px;
-    top: 42px;
-    transform: translate(-50%, -75%) rotate(-45deg);
-    z-index: 1;
-  }
-
-  
-
-  
-
-  .datesHosting__field::placeholder { 
-      //color: red;     
-      color: @color_blue-dark;
-      opacity: 0.75; 
+    &__title {
+      margin-bottom: 20px;    
     }
-
-    
-
-    .datesHosting__field:focus::-webkit-input-placeholder {color: transparent}
-    .datesHosting__field:focus::-moz-placeholder          {color: transparent}
-    .datesHosting__field:focus:-moz-placeholder           {color: transparent}
-    .datesHosting__field:focus:-ms-input-placeholder      {color: transparent}
+}
+  
 
 

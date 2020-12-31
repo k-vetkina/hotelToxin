@@ -10,6 +10,11 @@ const gcmq = require('gulp-group-css-media-queries');
 const less = require('gulp-less');
 const smartgrid = require('smart-grid');
 const pug = require('gulp-pug');
+const imagemin = require('gulp-imagemin');
+const webp = require('gulp-webp');
+const webpHTML = require('gulp-webp-html');
+const webpCss = require('gulp-webp-css');
+const webpConvert = require('webp-converter');
 
 
 const webpack = require('webpack');
@@ -71,10 +76,16 @@ function styles(){
 			   .pipe(autoprefixer({
 		            browsers: ['> 0.1%'],
 		            cascade: false
-		        }))
-			   .pipe(gulpif(isProd, cleanCSS({
-			   		level: 2
-			   })))
+						}))
+				 
+				 //.pipe(gulp.dest('./build/css'))   
+				 .pipe(gulpif(isProd, cleanCSS({
+				level: 2
+				 })))
+
+				 .pipe(gulpif(isProd, webpCss({isProd,
+					 webpClass: '.webp', 
+					 noWebpClass: '.no-webp'})))
 			   .pipe(gulpif(isDev, sourcemaps.write()))
 			   .pipe(gulp.dest('./build/css'))
 			   .pipe(gulpif(isSync, browserSync.stream()));
@@ -82,7 +93,25 @@ function styles(){
 
 function img(){
 	return gulp.src('./src/img/**/*')
-			   .pipe(gulp.dest('./build/img'))
+
+	       .pipe(webp({
+					 quality: 70
+				 }))
+				 .pipe(gulp.dest('./build/img'))
+				 .pipe(gulp.src('./src/img/**/*'))
+
+	       .pipe(imagemin({
+					interlaced: true,
+					progressive: true,
+					optimizationLevel: 3,
+					svgoPlugins: [
+							{
+									removeViewBox: false
+							}
+					]
+			}))
+				 .pipe(gulp.dest('./build/img'))
+				 .pipe(browserSync.stream());
 }
 
 function fonts(){
@@ -97,12 +126,13 @@ function fonts(){
 }*/
 
 function pug2html(){
-	return gulp.src(['./src/pug/**/*.pug', '!src/pug/**/_*.pug'])	
+	return gulp.src('./src/pug/*.pug')	
 	           .pipe(pug({
-					//basedir: __dirname,
+					
 					pretty: true
 				}))
-			   .pipe(gulp.dest('./build'))
+				 .pipe(webpHTML())
+				 .pipe(gulp.dest('./build'))				 
 			   .pipe(gulpif(isSync, browserSync.stream()));
 }
 
@@ -121,7 +151,7 @@ function watch(){
 		browserSync.init({
 	        server: {
 							baseDir: "./build/",
-							index: "ui-kit.html"
+							index: "index.html"
 	        }
 	    });
 	}
@@ -129,6 +159,7 @@ function watch(){
 	gulp.watch('./src/css/**/*.less', styles);
 	gulp.watch('./src/pug/**/*.pug', pug2html);
 	gulp.watch('./src/js/**/*.js', scripts);
+	gulp.watch('./src/img/**/*.img', img);
 	
 }
 
