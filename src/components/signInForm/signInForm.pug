@@ -1,0 +1,16 @@
+section.mainBack
+  form.form(action='#', method='GET')
+    include ../h1/h1
+    +h1('form__h1', 'Войти') 
+          
+    include ../fieldInput/fieldInput
+    +fieldInput('form__fieldInput','email', 'email','Email')
+    +fieldInput('form__fieldInput','password', 'password','Пароль')         
+      
+    include ../btn/btn
+    +btn('btn-withArrow form__btn', '', 'Войти', 'btn__arrowBtn')
+  
+    .form__container
+      p Нет аккаунта на Toxin?
+      +btn('btn-transparent form__btn-transparent', '#', 'Создать')
+        

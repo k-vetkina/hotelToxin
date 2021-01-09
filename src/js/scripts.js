@@ -1,9 +1,9 @@
-import * as dateBirth from './date-birth';
+import * as dateBirth from '../components/registerForm/date-birth';
 import * as guestPicker from './guests-number';
 import * as datePicker from './date-picker';
 import $ from "jquery";
 
-function testWebP(callback) {
+/*function testWebP(callback) {
 
   var webP = new Image();
   webP.onload = webP.onerror = function () {
@@ -21,4 +21,4 @@ function testWebP(callback) {
   }
   });
 
-webp.grant_permission();
+webp.grant_permission();*/

@@ -1,0 +1,5 @@
+mixin socialIcon(item, icon)  
+  li.socialIcons__item
+      a.socialIcons__icon(href='#0')
+        svg(class= "socialIcons__icon-" +item)
+          use(xlink:href="#" +icon)        

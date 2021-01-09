@@ -11,7 +11,7 @@ $('.guestHosting__select').find('.guestHosting__list .guestHosting__list-option'
   if(data.val >= data.max) data.val = data.max;
   
   // Так как "изначальная" запись `.-option` у нас упрощённая, то мы наполняем её содержимым, для того же изменения значений.
-  $(this).html('<div class="guestHosting__subtitle">'+$(this).attr('data-title')+'</div>\
+  $(this).html('<div class="guestHosting__title">'+$(this).attr('data-title')+'</div>\
     <div class="-input">\
       <div class="guestHosting__btn'+(data.val <= data.min ? ' --disabled' : '')+'" data-action="minus">-</div>\
       <div class="-value">'+data.val+'</div>\
@@ -84,7 +84,7 @@ function NumGuests() {
     $('.guestHosting__select').find('.guestHosting__btn[data-action="clear"]').addClass('--disabled'); // Скрываем кнопку "Очистить", ибо зачем она нам, ведь гостей нет..
   }
   //
-  $('.guestHosting__select').find('.guestHosting__label .guestHosting__subtitle').text(text);
+  $('.guestHosting__select').find('.guestHosting__label .guestHosting__title').text(text);
   $('.guestHosting__select').attr('data-guests', guests);
   $('.guestHosting__select').find('.guestHosting__btn[data-action="apply"]').addClass('--disabled'); // прячем кнопку "применить", ибо мы только что изменили данные
   //

@@ -5,8 +5,7 @@ $(function(){
 
 $('.datepicker-here').datepicker({
   range: true,
-  clearButton: true,
-  
+  clearButton: true,  
   
 
   prevHtml: '<svg class="arrow" transform=rotate(180)><use xlink:href="#iconArrow"></use></svg>',
@@ -39,7 +38,7 @@ onShow: function (dp, animationCompleted) {
 $('.datesHosting__field').datepicker({ 
   onSelect: function (fd, d, picker) { 
     $(".datesHosting__field").val(fd.split("-")[0]);
-    $(".datesHosting__fieldEnd").val(fd.split("-")[1]);
+    $(".fieldInput").val(fd.split("-")[1]);
   }
 });
 
@@ -50,7 +49,8 @@ $('.datesHosting__field').on('click', function(){
 $(document).mouseup(function(e){
   const field = $(".datesHosting__field"),
   datepicker = $(".datepicker"),
-  datepickerCh = $(".datepicker").find('.datepicker--button[data-action=apply]');
+  datepickerCh = $(".datepicker").find('.datepicker--button[data-action="apply"]');
+  
   if (!field.is(e.target)
   && field.has(e.target).length === 0
   && !datepicker.is(e.target)    

@@ -1,1 +1,8 @@
-+btn(btn, href="#0") Зарегистрироваться
+mixin btn(classname, href, text, icon)
+  if (href)
+    a.btn(class= classname)= text
+      
+  else
+    button.btn(class= classname type='submit')= text
+      svg(class= icon)
+        use(xlink:href='#iconArrow') 
