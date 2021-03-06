@@ -1,0 +1,20 @@
+.richCheckBtns
+  label.richCheckBtns__item
+    input(type='checkbox' class='checkBtns__mark')
+    .checkBtns__mark-fake
+    .richCheckBtns__p
+      include ../h2/h2
+      +h2('richCheckBtns__h2', 'Широкий коридор')      
+      span.richCheckBtns__text Ширина коридоров в номере 
+        br
+        |не менее 91 см.
+
+  label.richCheckBtns__item
+    input(type='checkbox' class='checkBtns__mark')
+    .checkBtns__mark-fake
+    .richCheckBtns__p      
+      +h2('richCheckBtns__h2', 'Помощник для инвалидов')      
+      span.richCheckBtns__text На 1 этаже вас встретит специалист 
+        br
+        |и проводит до номера.
+    

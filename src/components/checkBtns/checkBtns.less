@@ -1,0 +1,48 @@
+.checkBtns { 
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0; // для ui-kit
+  
+
+  &__mark {
+    display: none;}
+
+  &__mark-fake {    
+    display: inline-block;
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgba(31, 32, 65, .25);
+    border-radius: 4px;
+    position: relative;
+    margin-right: 10px;
+
+  }
+
+  &__mark-fake::before {
+    content: "";    
+    left: 2px;
+    //display: block;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    background-image: url('/img/sprite/check-mark.svg');
+    background-repeat: no-repeat;
+    background-size: 15px;    
+    opacity: 0;
+    transition: .2s;
+  }
+
+  &__mark:checked + .checkBtns__mark-fake::before {
+    opacity: 1;
+  }
+
+  &__text {
+    vertical-align: top;
+    color: rgba(31, 32, 65, .5); 
+  }
+}
+
+
+
+

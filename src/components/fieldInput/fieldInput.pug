@@ -1,6 +1,9 @@
 
-mixin fieldInput(classname, type, name, placeholder)
-  input.fieldInput(type= type, name= name, placeholder= placeholder)
+mixin fieldInput(classname, type, name, placeholder, separator='')
+  if separator !=''    
+    input.fieldInput(class= classname, type= type, name= name, placeholder= placeholder, data-multiple-dates-separator= separator)
+  else 
+    input.fieldInput(class= classname, type= type, name= name, placeholder= placeholder)  
 
   
 

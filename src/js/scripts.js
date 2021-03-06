@@ -1,7 +1,17 @@
-import * as dateBirth from '../components/registerForm/date-birth';
+import * as dateBirth from '../components/fieldInput/fieldInput';
 import * as guestPicker from './guests-number';
 import * as datePicker from './date-picker';
+import * as rangeslider from '../components/rangeslider/rangeslider';
+import * as likeBtn from '../components/likeBtn/likeBtn';
+import {elemes} from '../components/pagination/pagination';
+import * as pagination from '../components/pagination/pagination';
+//import * as radioBtn from '../components/radioBtn/radioBtn';
+
+
 import $ from "jquery";
+
+
+
 
 /*function testWebP(callback) {
 

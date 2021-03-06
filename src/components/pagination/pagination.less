@@ -1,0 +1,84 @@
+.pagination {
+  display: flex;
+  margin-bottom: 10px;
+  
+
+  margin-left: 40px; //позиционирование для ui-кита
+  margin-top: 40px; //позиционирование для ui-кита  
+  
+  align-items: stretch;
+  justify-content: center;
+
+  &__list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    //background: #fff;   
+
+  }
+
+  &__item {
+    color: rgba(31,32,65,.5);
+    list-style: none;    
+    text-align: center;
+    font-size: 12px;    
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.3s ease;
+    line-height: 39px;
+    
+  }
+
+  &__numb {
+  
+  list-style: none;
+  height: 40px;
+  width: 40px;
+  margin: 0 3px;  
+  border-radius: 22px;
+  }
+
+   &__item.active,
+   &__numb:hover,
+  &__numb:first-child:hover,
+  &__numb:last-child:hover{
+    color: #fff;
+    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+    align-self: center;
+}
+
+&__text {
+  margin-left: 40px; //позиционирование для ui-кита 
+  text-align: center;
+}
+
+&__btnPrev {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+border-radius: 22px;
+}
+
+&__btnNext {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+border-radius: 22px;
+position: relative;
+}
+
+&__arrow {
+  position: absolute;
+  fill: white;
+  width: 20px;
+  height: 20px;
+  top: 10px;
+  left:10px; 
+
+}
+
+
+}
+
+

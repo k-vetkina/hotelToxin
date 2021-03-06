@@ -1,0 +1,143 @@
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.labels {
+  //min-width: 102px;
+  //text-align: end;
+  /*display: flex;
+  justify-content: end;  */
+  
+  
+}
+
+.rangeslider {
+  margin-left: 40px; //позиционирование для ui-кита
+  margin-top: 20px; //позиционирование для ui-кита  
+  margin-bottom: 20px; //позиционирование для ui-кита
+  
+  max-width: 266px;
+  //box-sizing: border-box; 
+  //margin-left: 0 auto;
+
+  &__p {
+  display: flex;  
+  margin-bottom: 20px;
+  justify-content: space-between;
+  }
+  
+  /*&__h3 {
+    margin-bottom: 20px;
+  }*/
+
+  &__label {
+    //display: flex;
+    
+    font-size: 12px;
+    text-transform: uppercase; 
+     
+
+  }
+
+  &__price::placeholder {
+    color: rgba(31,32,65,.5);
+    padding: 0;
+    margin: 0;
+    
+  }
+
+  &__span {     
+    display: inline-block;        
+    color: rgba(31,32,65,.5);
+    //margin-left: 10px;
+    //white-space: pre;
+  }
+
+  &__span-line {  
+    
+    margin-left: 10px;
+    //white-space: pre;
+  }
+
+  &__slider {
+    margin-bottom: 10px;
+
+  }
+
+  &__price {        
+    border: none;
+    outline: none;
+    width: 39px;    
+    text-align: end;
+    color: rgba(31,32,65,.5);
+    //padding: 0 2px;
+  }
+  
+
+  &__text {
+    color: rgba(31,32,65,.5);
+    font-size: 12px;
+  }
+}
+
+
+
+.noUi-connect {
+  background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+border-radius: 3px;
+}
+
+
+.noUi-target * {
+  outline: none;
+}
+
+.noUi-target {
+  background: #FFFFFF;
+  border-radius: 3px;
+  border: 1px solid rgba(31, 32, 65, 0.25);
+  box-shadow: none;
+  height: 6px;
+  //max-width: 254px;
+  
+}
+
+.noUi-horizontal {
+  height: 6px;
+}
+
+
+.noUi-handle::before, .noUi-handle::after {
+  display: none;
+}
+
+.noUi-handle {
+  
+  background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+border: 2px solid #FFFFFF;
+border-radius: 10px;
+  
+  box-shadow: none;
+}
+
+.noUi-horizontal .noUi-handle {
+  width: 12px;
+  height: 12px;  
+  right: -14px;
+  box-sizing: content-box;  
+}
+
+
+
+.noUi-horizontal .noUi-handle-upper {
+  right: -2px;
+}
+

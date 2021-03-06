@@ -15,6 +15,9 @@ const webp = require('gulp-webp');
 const webpHTML = require('gulp-webp-html');
 const webpCss = require('gulp-webp-css');
 const webpConvert = require('webp-converter');
+const svgstore = require('gulp-svgstore');
+const svgmin = require('gulp-svgmin');
+const rename = require('gulp-rename');
 
 
 const webpack = require('webpack');
@@ -83,22 +86,41 @@ function styles(){
 				level: 2
 				 })))
 
-				 .pipe(gulpif(isProd, webpCss({isProd,
+				 /*.pipe(gulpif(isProd, webpCss({isProd,
 					 webpClass: '.webp', 
-					 noWebpClass: '.no-webp'})))
+					 noWebpClass: '.no-webp'})))*/
+				 .pipe(gulpif(isProd, webpCss()))	 
 			   .pipe(gulpif(isDev, sourcemaps.write()))
 			   .pipe(gulp.dest('./build/css'))
 			   .pipe(gulpif(isSync, browserSync.stream()));
 }
 
-function img(){
-	return gulp.src('./src/img/**/*')
+const sprite = () => {
+	return gulp.src('./src/img/sprite/*.svg')
+	  .pipe(
+			svgmin({
+				plugins: [{
+					removeViewBox: false
+				}]
+			}))
+		.pipe(svgstore())
+		.pipe(rename("sprite.svg"))
+		.pipe(gulp.dest("build/img"))	
+}
+
+exports.sprite = sprite;
+
+const imagesToWebp = () => {
+  return gulp.src('./src/img/**/*.{jpg,png}')
 
 	       .pipe(webp({
 					 quality: 70
 				 }))
 				 .pipe(gulp.dest('./build/img'))
-				 .pipe(gulp.src('./src/img/**/*'))
+}
+
+function img(){
+	return gulp.src('./src/img/**/*')	       
 
 	       .pipe(imagemin({
 					interlaced: true,
@@ -159,7 +181,7 @@ function watch(){
 	gulp.watch(['./src/css/**/*.less', './src/components/**/*.less'], styles);
 	gulp.watch(['./src/pug/**/*.pug', './src/components/**/*.pug'], pug2html);
 	gulp.watch(['./src/js/**/*.js', './src/components/**/*.js'], scripts);
-	gulp.watch('./src/img/**/*.img', img);
+	gulp.watch('./src/img/**/*', img);
 	
 }
 
@@ -182,7 +204,7 @@ function grid(done){
 }
 
 let build = gulp.series(clear, 
-	gulp.parallel(styles, img, fonts, pug2html, scripts)
+	gulp.parallel(styles, imagesToWebp, img, fonts, sprite, pug2html, scripts)
 );
 
 gulp.task('build', build);

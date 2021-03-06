@@ -1,0 +1,30 @@
+.bullet {  
+  margin-left: 40px; //позиционирование для ui-кита  
+  margin-top: 20px; //позиционирование для ui-кита  
+  margin-bottom: 20px; //позиционирование для ui-кита
+   
+  
+    &__item {      
+      font-family: @default-font;
+      color: rgba(31, 32, 65, .75);
+      font-size: 14px; 
+      padding-bottom: 10px;  
+      white-space: pre; 
+      
+    }
+    
+    &__item::before {
+      content: '';
+      display: inline-block;      
+      width: 10px;
+      height: 10px; 
+      border-radius: 50%;    
+      background: rgba(31, 32, 65, .25);
+      margin-right: 10px;   
+      
+    }  
+ 
+
+}
+
+

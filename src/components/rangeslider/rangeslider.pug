@@ -1,0 +1,14 @@
+.rangeslider
+  .rangeslider__p
+    include ../h3/h3
+    +h3('rangeslider__h3', 'Диапазон цены')
+    .labels
+      label.rangeslider__label     
+        input.rangeslider__price#inputPrice0(type="number" min='500' max='10000' placeholder='5000')
+        span.rangeslider__span ₽
+        span.rangeslider__span.rangeslider__span-line -
+      label.rangeslider__label   
+        input.rangeslider__price#inputPrice1(type="number" min='500' max='10000' placeholder='10000')
+        span.rangeslider__span ₽    
+  .rangeslider__slider#rangeslider
+  span.rangeslider__text Стоимость за сутки пребывания в номере
