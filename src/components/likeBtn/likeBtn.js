@@ -1,4 +1,4 @@
-//let counter = 0;
+/*let counter = 0;
 let likeBtn = $('.likeBtn');
 let newBtn = $('.newBtn');
  
@@ -18,3 +18,15 @@ newValue = currentValue + 1;
 
 }
  });
+
+ */
+
+ 
+  $('.likeBtn__content').on('click', function(){
+    
+    $('.likeBtn__number').toggleClass("like-active")
+    $('.likeBtn__content').toggleClass("like-active")
+    $('.likeBtn__heart').toggleClass("like-active")
+    
+  });
+

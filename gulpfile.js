@@ -173,7 +173,7 @@ function watch(){
 		browserSync.init({
 	        server: {
 							baseDir: "./build/",
-							index: "index.html"
+							index: "ui-kit.html"
 	        }
 	    });
 	}

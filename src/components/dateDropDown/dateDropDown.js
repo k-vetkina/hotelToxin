@@ -1,7 +1,7 @@
 import datepicker from 'air-datepicker';
 
 $(function(){
-  let confirmBtn = $('.datepicker--button[data-action="apply"]')
+  /*let confirmBtn = $('.datepicker--button[data-action="apply"]')*/
 
 $('.datepicker-here').datepicker({
   range: true,
@@ -27,6 +27,7 @@ onShow: function (dp, animationCompleted) {
    $('.datepicker--buttons').append('<span class="datepicker--button"  data-action="apply">Применить</span>');
    dp.$datepicker.find('.datepicker--button[data-action=apply]').click(function(event) {
       dp.hide();
+      $(".arrowMore-dateDropDown").removeClass('arrowMore-active');
         });
      }
    }
@@ -56,8 +57,7 @@ $(document).mouseup(function(e){
   && !datepicker.is(e.target)    
   && datepicker.not(datepickerCh).has(e.target).length === 0)
 
-  //|| !confirmBtn.is(e.target)
-   
+    
    {$('.arrowMore').removeClass('arrowMore-active');
   }
 });
@@ -68,7 +68,3 @@ $(document).mouseup(function(e){
    
 
 });
-
-
-
-  

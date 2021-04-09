@@ -4,6 +4,7 @@
   box-shadow: none;
   color: rgba(31, 32, 65, 0.5);
   width: 317px;
+  
 
   &--nav {
     border-bottom: none;
@@ -33,8 +34,10 @@
 
   &--cell.-in-range- {
     background: linear-gradient(rgba(188, 156, 255, 0.25), rgba(139, 164, 249, 0.25));
+    //background:linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
     color: rgba(31, 32, 65, 0.5);
     border-radius: 0;
+    
   }
 
 
@@ -42,6 +45,7 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    border: none;
   }
 
   &--cell.-range-from-::before {
@@ -51,6 +55,8 @@
     width: 40px;
     border-radius: 50% 0 0 50%;
     background: linear-gradient(rgba(188, 156, 255, 0.25), rgba(139, 164, 249, 0.25));
+    
+    
   }
 
   &--cell.-range-to- {
@@ -58,6 +64,7 @@
     height: 40px;
     border-radius: 50%;
     position: relative;
+    border: none;
   }
 
   &--cell.-range-to-::before {
@@ -67,6 +74,8 @@
     width: 40px;
     border-radius: 0 50% 50% 0;
     background: linear-gradient(rgba(188, 156, 255, 0.25), rgba(139, 164, 249, 0.25));
+   
+    
   }
 
   &--day-name {
@@ -85,6 +94,7 @@
   &--cell.-current- {
     width: 40px;
     height: 40px;
+    
   }
 
   &--content {
@@ -94,6 +104,7 @@
 
   &--cell.-focus- {
     background: linear-gradient(rgba(188, 156, 255, 0.25), rgba(139, 164, 249, 0.25));
+    border-radius: 50%;
   }
 
 
@@ -115,6 +126,7 @@
     border-top: none;
     margin-left: 20px;
     margin-right: 20px;
+    padding-top: 0;
   }
 
   &--button {
@@ -130,4 +142,8 @@
     opacity: .5;
     background: none;
   }
+
+  /*&--cell-day -current- {
+    border: none;
+  }*/
 }

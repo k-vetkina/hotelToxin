@@ -1,10 +1,11 @@
 import * as dateBirth from '../components/fieldInput/fieldInput';
 import * as guestPicker from './guests-number';
-import * as datePicker from './date-picker';
+import * as datePicker from '../components/dateDropDown/dateDropDown';
 import * as rangeslider from '../components/rangeslider/rangeslider';
 import * as likeBtn from '../components/likeBtn/likeBtn';
 import {elemes} from '../components/pagination/pagination';
 import * as pagination from '../components/pagination/pagination';
+import * as extraAdvs from '../components/extraAdvs/extraAdvs';
 //import * as radioBtn from '../components/radioBtn/radioBtn';
 
 

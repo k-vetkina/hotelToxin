@@ -1,0 +1,39 @@
+form.form(action='#', method='GET')
+  .form__dataHeader
+    p.form__halfData
+        span.form__sign № 
+        span.form__number 888
+        span.form__type люкс
+    p.form__halfData
+        span.form__cost 9 990₽ 
+        span.form__costPer в сутки
+        
+  include ../dateDropDown/dateDropDown
+  include ../guestDropDown/guestDropDown
+
+  .form__dataFooter
+    p.form__roomData 9 990₽ х 4 суток   
+    p.form__roomData 39 960₽
+
+  .form__dataFooter 
+    p.form__roomData Сбор за услуги: скидка 2 179₽
+      svg.icon-attention
+        use(xlink:href='#attention')         
+    p.form__roomData 0₽
+
+  .form__dataFooter
+    p.form__roomData
+      | Сбор за дополнительные
+      br
+      | услуги
+    svg.icon-attention
+      use(xlink:href='#attention')      
+    p.form__roomData 300₽
+
+  .form__dataFooter.form__dataFooter-total
+    p.form__roomData Итого
+    p.form__roomData.form__roomData-space     
+    p.form__roomData 38 081₽
+
+  include ../btn/btn
+  +btn('btn-withArrow', '', 'Забронировать', 'btn__arrowBtn')                  

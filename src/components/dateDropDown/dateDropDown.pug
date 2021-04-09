@@ -1,11 +1,22 @@
-include ../fieldInput/fieldInput
-+fieldInput('datesHosting__field datepicker-here','text', '','ДД.ММ.ГГГГ', '-')
-  a(class="datesHosting__arrowMore")
-    svg(class="arrowMore")
-      use(xlink:href="#iconMore") 
-
-
-
+.dateDropDown
   
+  fieldset.dateDropDown__arrivals 
+    include ../h3/h3 
+    +h3('', 'Прибытие')
 
-
+    include ../fieldInput/fieldInput
+    +fieldInput('fieldInput-start datepicker-here','text', '','ДД.ММ.ГГГГ','-')
+    a(class="dateDropDown__arrowMore")
+        svg(class="arrowMore arrowMore-dateDropDown")
+          use(xlink:href="#iconMore")       
+          
+    
+      
+       
+  fieldset.dateDropDown__departure
+    +h3('', 'Выезд')
+        
+    +fieldInput('fieldInput-end','text', '','ДД.ММ.ГГГГ')    
+    a(class="dateDropDown__arrowMore")
+        svg(class="arrowMore")
+          use(xlink:href="#iconMore")

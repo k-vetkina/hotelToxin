@@ -1,4 +1,4 @@
-.guestHosting {
+.guestDropDown {
   
   margin-bottom: 30.44px;
   display: flex;
@@ -15,21 +15,29 @@
   &__label {
     width: 100%;
     border-radius: 5px;
-    border: 1px solid #929197;
+    //border: 1px solid #929197;
+    border: 1px solid rgba(31, 32, 65, 0.25);
     padding: 10px 16px;
     box-sizing: border-box;
     cursor: pointer;
   }
 
   &__title {
-    color: @color_blue-dark;
+    color: rgba(31, 32, 65, 0.75);
     font-size: 14px;
-    opacity: .75;}
+    
+    
+    
+    //opacity: .75;
+  }
 
   &__subtitle {
+    
   color: @color_blue-dark;
   font-size: 12px;
-  opacity: 1;}  
+  opacity: 1;
+    
+  }  
 
   &__dropdown {
     display: none;
@@ -142,6 +150,19 @@
     justify-content: space-between;
     align-items: center;
   }
+
+  /*&:focus{
+    opacity: 0.5;
+  }
+  &:hover{
+    opacity: 0.5;
+  }
+  &:hover::placeholder{
+    color: rgba(31, 32, 65, .75)  
+  }
+  &:focus::placeholder{
+    color: rgba(31, 32, 65, .75)  
+  }*/
 
 }
 
