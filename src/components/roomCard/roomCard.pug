@@ -1,0 +1,25 @@
+.roomCard
+  
+  .roomCard__pic 
+  .roomCard__text
+    .form__dataHeader.form__dataHeader-card
+      p.form__halfData
+        span.form__sign № 
+        span.form__number 888
+        span.form__type люкс
+      p.form__halfData
+        span.form__cost 9 990₽ 
+        span.form__costPer в сутки
+  .line
+  .bottom
+    .rateBtns
+      include ../rateBtn/rateBtn
+      +rateBtn('colored', 'star')
+      +rateBtn('colored', 'star')
+      +rateBtn('colored', 'star')
+      +rateBtn('colored', 'star')
+      +rateBtn('colored', 'star')
+    p.form__halfData
+      span.form__cost 145 
+      span.form__costPer.form__costPer-feedback Отзывов
+          

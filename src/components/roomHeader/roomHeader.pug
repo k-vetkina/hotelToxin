@@ -1,0 +1,11 @@
+mixin roomHeader(className, number, type, cost, costPer, classname)
+  .roomHeader(class= className)
+    p.roomHeader__halfData
+        span.roomHeader__sign № 
+        span.roomHeader__number= number  
+        span.roomHeader__type= type  
+    p.roomHeader__halfData
+        span.roomHeader__cost= cost   
+        span.roomHeader__costPer(class= classname)= costPer
+
+    

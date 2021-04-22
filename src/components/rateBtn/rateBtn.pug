@@ -1,6 +1,4 @@
-.rateBtns
-  button.rateBtn
-  button.rateBtn
-  button.rateBtn
-  button.rateBtn
-  button.rateBtn
+mixin rateBtn(item, icon)  
+  a.rateBtn(href='#0')
+    svg(class= "rateBtn__icon-" +item)
+      use(xlink:href="#" +icon)   
