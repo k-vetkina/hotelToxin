@@ -1,0 +1,19 @@
+fieldset.dropDown
+  legend.h3 Удобства номера
+  .dropDown__select
+    .dropDown__label
+      .dropDown__title Что входит в номер
+      // guestDropDown__arrowMore не то название класса
+      a(class="guestDropDown__arrowMore") 
+                                 
+          svg(class="arrowMore")
+            use(xlink:href="#iconMore")
+    .dropDown__dropdown
+      .dropDown__list
+        .dropDown__list-option(data-min='0' data-val='0' data-max='10' data-title='Спальни')
+        .dropDown__list-option(data-min='0' data-val='0' data-max='5' data-title='Кровати')
+        .dropDown__list-option(data-min='0' data-val='0' data-max='5' data-title='Ванные комнаты')
+      .dropDown__btns 
+        button(class='btn dropDown__btn' type='button' data-action='clear') Очистить
+        button(class='btn dropDown__btn' type='button' data-action='apply') Применить
+    input.dropDown__output(type='hidden' name='select') 

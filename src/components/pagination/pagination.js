@@ -1,7 +1,8 @@
-
+window.addEventListener('load', function(){
 
 let ulTag = document.querySelector(".pagination__list");
 let totalPages = 15;
+
 
 
 function elemes(totalPages, page){
@@ -10,7 +11,7 @@ let activeLi;
 let beforePages = page - 1;
 let afterPages = page + 1;
 if(page > 1) {
-liTag += `<li class="pagination__item pagination__btnPrev" onclick="elemes(totalPages, ${page - 1})">
+liTag += `<li class="pagination__btnPrev" onclick="elemes(totalPages, ${page - 1})">
 <svg class="pagination__arrow" transform='rotate(180)'>
   <use xlink:href="#iconArrow"></use>
 </svg>  
@@ -28,7 +29,7 @@ for(let pageLength = beforePages; pageLength <= afterPages; pageLength++ ) {
 }
 
 if(page < totalPages) {
-  liTag += `<li class="pagination__item pagination__btnNext" onclick="elemes(totalPages, ${page + 1})">
+  liTag += `<li class="pagination__btnNext" onclick="elemes(totalPages, ${page + 1})">
   <svg class="pagination__arrow">
     <use xlink:href="#iconArrow"></use>
   </svg>  
@@ -36,9 +37,13 @@ if(page < totalPages) {
   
   }
   ulTag.innerHTML = liTag;
+  
 
 };
+//document.addEventListener('DOMContentLoaded', elemes(totalPages, 7));
 
-elemes(totalPages, 5);
+elemes(totalPages, 7);
+
+});
 
 

@@ -1,0 +1,17 @@
+fieldset.guestDropDown
+  legend.h3 Удобства номера
+  .guestDropDown__select
+    .guestDropDown__label
+      .guestDropDown__title Выберите варианты 
+      a(class="guestDropDown__arrowMore")
+          svg(class="arrowMore")
+            use(xlink:href="#iconMore")
+    .guestDropDown__dropdown
+      .guestDropDown__list
+        .guestDropDown__list-option(data-min='0' data-val='0' data-max='5' data-title='Спальни')
+        .guestDropDown__list-option(data-min='0' data-val='0' data-max='5' data-title='Кровати')
+        .guestDropDown__list-option(data-min='0' data-val='0' data-max='3' data-title='Ванные комнаты')
+      .guestDropDown__btns 
+        button(class='btn guestDropDown__btn' type='button' data-action='clear') Очистить
+        button(class='btn guestDropDown__btn' type='button' data-action='apply') Применить
+    input.guestDropDown__output(type='hidden' name='select') 
