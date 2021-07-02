@@ -148,7 +148,11 @@ function fonts(){
 }*/
 
 function pug2html(){
-	return gulp.src('./src/pug/*.pug')	
+	return gulp.src([
+		 
+		'./src/*.pug',
+		'./src/components/**/_?*.pug'], {
+			base: './src'})	
 	           .pipe(pug({
 					
 					pretty: true
@@ -173,13 +177,13 @@ function watch(){
 		browserSync.init({
 	        server: {
 							baseDir: "./build/",
-							index: "ui-kit.html"
+							index: "index.html"
 	        }
 	    });
 	}
 
 	gulp.watch(['./src/css/**/*.less', './src/components/**/*.less'], styles);
-	gulp.watch(['./src/pug/**/*.pug', './src/components/**/*.pug'], pug2html);
+	gulp.watch(['./src/*.pug', './src/components/**/*.pug'], pug2html);
 	gulp.watch(['./src/js/**/*.js', './src/components/**/*.js'], scripts);
 	gulp.watch('./src/img/**/*', img);
 	
