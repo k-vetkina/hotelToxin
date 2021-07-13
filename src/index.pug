@@ -4,13 +4,13 @@ html(lang="ru")
     meta(charset = "utf-8")
     meta(name="viewport", content="initial-scale=1.0, width=device-width")
     title Отель TOXIN
-    link(href="css/styles.css" rel="stylesheet")    
+    link(href="/css/styles.css" rel="stylesheet")    
     link(rel="icon" href="../img/logo_sign.svg" sizes="any" type="image/svg+xml")
   body
-    include svg/svg
-    include debug/debug 
-    include ../components/header/header           
-    include ../components/main/main
-    include ../components/footer/footer
-    script(src="js/scripts.js")
+    include pug/svg/svg
+    include pug/debug/debug 
+    include components/header/header           
+    include components/main/main
+    include components/footer/footer
+    script(src="/js/scripts.js")
     

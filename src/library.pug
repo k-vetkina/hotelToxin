@@ -1,0 +1,37 @@
+- var menu = ['btn', 'pagination', 'bullet', 'checkBtns', 'dateDropDown', 'extraAdvs'];
+
+doctype html
+html(lang="ru")
+  head
+    meta(charset = "utf-8")
+    meta(name="viewport", content="initial-scale=1.0, width=device-width")
+    title Library
+    link(href="/css/styles.css" rel="stylesheet")    
+    
+  body
+    include pug/svg/svg 
+    .wrapper
+    
+      include components/h1/h1
+      +h1('', 'Components for website')       
+
+      nav.navigation
+        ul 
+          
+          each item in menu
+            li
+              a(href=`/components/${item}/_${item}.html`)= item
+
+      
+      .btnWrapper
+        block btn-block 
+      block pagination-block
+      block bullet-block
+      block checkBtns-block
+      .dateDropDownWrapper
+        block dateDropDown-block
+      block extraAdvs-block   
+           
+
+
+  script(src="/js/scripts.js") 

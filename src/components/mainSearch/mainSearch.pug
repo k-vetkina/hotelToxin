@@ -17,12 +17,8 @@ block variables
       include ../checkBtns/checkBtns
 
       +h3('', 'Доступность')
-      include ../richCheckBtns/richCheckBtns
-
+      include ../richCheckBtns/richCheckBtns      
       
-      //include ../roomDropDown/roomDropDown
-      //
-
       include ../extraAdvs/extraAdvs
 
       include ../guestDropDown/dropDown-room
@@ -30,86 +26,50 @@ block variables
     .mainSearch__rooms
       include ../h1/h1
       +h1('form__h1', 'Номера, которые мы для вас подобрали')
-      .mainSearch__col1
+      .mainSearch__column 
+        .mainSearch__column-item 
+         
+          include ../roomCard/roomCard
+          +roomCard({
+              image: 'lux',            
+              class: 'roomHeader__roomCard',
+              number: 888,
+              type: 'люкс',
+              price: '9 990₽',
+              costPer: 'в сутки',
+              star: 5,
+              nFeedback: 145,
+              feedback: 'Отзывов'        
+              })
 
-        .roomCard.mainSearch__roomCard
-  
-          .roomCard__pic 
-          include ../roomHeader/roomHeader 
-          +roomHeader('roomHeader__roomCard', '888', 'люкс', '9 990₽', 'в сутки')
+        .mainSearch__column-item 
+          +roomCard({
+              image: 'lux',            
+              class: 'roomHeader__roomCard',
+              number: 888,
+              type: 'люкс',
+              price: '9 990₽',
+              costPer: 'в сутки',
+              star: 5,
+              nFeedback: 145,
+              feedback: 'Отзывов'        
+              }) 
+
+        .mainSearch__column-item 
+          +roomCard({
+              image: 'lux',            
+              class: 'roomHeader__roomCard',
+              number: 888,
+              type: 'люкс',
+              price: '9 990₽',
+              costPer: 'в сутки',
+              star: 5,
+              nFeedback: 145,
+              feedback: 'Отзывов'        
+              })           
             
-          .roomCard__line
-          .roomCard__bottom
-            .roomCard__rateBtns
-              include ../rateBtn/rateBtn
-              +rateBtn('colored', 'star')
-              +rateBtn('colored', 'star')
-              +rateBtn('colored', 'star')
-              +rateBtn('colored', 'star')
-              +rateBtn('colored', 'star')
-            p.roomCard__halfData
-              span.roomCard__cost 145 
-              span.roomCard__feedback Отзывов
+      
 
-
-        .roomCard.mainSearch__roomCard
-  
-          .roomCard__pic 
-          include ../roomHeader/roomHeader 
-          +roomHeader('roomHeader__roomCard', '856', '', '7300₽', 'в сутки')
-            
-          .roomCard__line
-          .roomCard__bottom
-            .roomCard__rateBtns
-              include ../rateBtn/rateBtn
-              +rateBtn('colored', 'star')
-              +rateBtn('colored', 'star')
-              +rateBtn('colored', 'star')
-              +rateBtn('colored', 'star')
-              +rateBtn('colored', 'star')
-            p.roomCard__halfData
-              span.roomCard__cost 19 
-              span.roomCard__feedback Отзывов
-
-
-        .roomCard.mainSearch__roomCard
-  
-          .roomCard__pic 
-          include ../roomHeader/roomHeader 
-          +roomHeader('roomHeader__roomCard', '678', '', '5500₽', 'в сутки')
-            
-          .roomCard__line
-          .roomCard__bottom
-            .roomCard__rateBtns
-              include ../rateBtn/rateBtn
-              +rateBtn('colored', 'star')
-              +rateBtn('colored', 'star')
-              +rateBtn('colored', 'star')
-              +rateBtn('colored', 'star')
-              +rateBtn('colored', 'star')
-            p.roomCard__halfData
-              span.roomCard__cost 45 
-              span.roomCard__feedback Отзывов
-
-
-        .roomCard.mainSearch__roomCard
-  
-          .roomCard__pic 
-          include ../roomHeader/roomHeader 
-          +roomHeader('roomHeader__roomCard', '666', '', '5000₽', 'в сутки')
-            
-          .roomCard__line
-          .roomCard__bottom
-            .roomCard__rateBtns
-              include ../rateBtn/rateBtn
-              +rateBtn('colored', 'star')
-              +rateBtn('colored', 'star')
-              +rateBtn('colored', 'star')
-              +rateBtn('colored', 'star')
-              +rateBtn('colored', 'star')
-            p.roomCard__halfData
-              span.roomCard__cost 25 
-              span.roomCard__feedback Отзывов
 
   include ../pagination/pagination          
     

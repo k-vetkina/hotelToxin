@@ -1,0 +1,26 @@
+extends ../../library.pug
+
+block pagination-block
+  .pagination
+    ul.pagination__list
+      li.pagination__item.pagination__btnPrev
+        svg(class='pagination__arrow' transform='rotate(180)' )
+          use(xlink:href='#iconArrow')  
+      li.pagination__item.pagination__numb.active
+        span.pagination__val 1
+      li.pagination__item.pagination__numb
+        span.pagination__val 2
+      li.pagination__item.pagination__dots
+        span.pagination__val ...
+      li.pagination__item.pagination__numb
+        span.pagination__val 4 
+      li.pagination__item.pagination__numb
+        span.pagination__val 5
+      li.pagination__item.pagination__dots
+        span.pagination__val ...
+      li.pagination__item.pagination__numb
+        span.pagination__val 7
+      li.pagination__item.pagination__btnNext
+        svg(class='pagination__arrow')
+          use(xlink:href='#iconArrow') 
+  span.text.pagination__text 1 – 12 из 100+ вариантов аренды    

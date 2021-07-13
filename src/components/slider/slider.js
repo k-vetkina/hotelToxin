@@ -3,7 +3,13 @@ import slider from 'slick-slider';
 
 $(function(){
 $('.slider').slick({
+    arrows: false,
     dots: true,
+    //slidesToShow:
+    //variableWidth: true
+    fade: true,
+    //appendDots: $('picture')
+
 
 });
 

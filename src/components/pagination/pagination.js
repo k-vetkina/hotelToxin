@@ -1,17 +1,17 @@
-window.addEventListener('load', function(){
+window.addEventListener('load', function () {
 
 let ulTag = document.querySelector(".pagination__list");
 let totalPages = 15;
+let currentPage = 3;
 
 
-
-function elemes(totalPages, page){
+function elemes(totalPages, currentPage){
 let liTag = '';
 let activeLi;
-let beforePages = page - 1;
-let afterPages = page + 1;
-if(page > 1) {
-liTag += `<li class="pagination__btnPrev" onclick="elemes(totalPages, ${page - 1})">
+let beforePages = currentPage - 1;
+let afterPages = currentPage + 1;
+if(currentPage > 1) {
+liTag += `<li class="pagination__btnPrev" data-pagination="-1">
 <svg class="pagination__arrow" transform='rotate(180)'>
   <use xlink:href="#iconArrow"></use>
 </svg>  
@@ -19,8 +19,34 @@ liTag += `<li class="pagination__btnPrev" onclick="elemes(totalPages, ${page - 1
 
 }
 
+if(currentPage > 2){ //if page value is less than 2 then add 1 after the previous button
+  liTag += `<li class="pagination__item pagination__numb"><span class="pagination__val">1</span></li>`; 
+  if(currentPage > 3){
+    liTag += `<li class="pagination__item pagination__dots"><span class="pagination__val">...</span></li>`;}
+
+}
+
+if(currentPage == totalPages) {
+  beforePages = beforePages - 1;
+} else if(currentPage == totalPages - 1) {
+  beforePages = beforePages;
+}
+
+if(currentPage == 1) {
+  afterPages = afterPages + 1;
+} else if(currentPage == 2) {
+  afterPages = afterPages;
+}
+
 for(let pageLength = beforePages; pageLength <= afterPages; pageLength++ ) {
-  if(page == pageLength) {
+  if(pageLength > totalPages) {
+    continue;
+  }
+  if(pageLength == 0) {
+    pageLength = pageLength + 1;
+  }
+
+  if(currentPage == pageLength) {
     activeLi = "active"; 
    } else {
     activeLi = '';
@@ -28,8 +54,17 @@ for(let pageLength = beforePages; pageLength <= afterPages; pageLength++ ) {
   liTag += `<li class="pagination__item pagination__numb ${activeLi}"><span class="pagination__val">${pageLength}</span></li>`
 }
 
-if(page < totalPages) {
-  liTag += `<li class="pagination__btnNext" onclick="elemes(totalPages, ${page + 1})">
+if(currentPage < totalPages - 1){ 
+
+if(currentPage < totalPages - 2) {
+  liTag += `<li class="pagination__item pagination__dots"><span class="pagination__val">...</span></li>`;}
+
+  liTag += `<li class="pagination__item pagination__numb"><span class="pagination__val">${totalPages}</span></li>`; 
+
+}
+
+if(currentPage < totalPages) {
+  liTag += `<li class="pagination__btnNext" data-pagination="1">
   <svg class="pagination__arrow">
     <use xlink:href="#iconArrow"></use>
   </svg>  
@@ -40,10 +75,58 @@ if(page < totalPages) {
   
 
 };
-//document.addEventListener('DOMContentLoaded', elemes(totalPages, 7));
 
-elemes(totalPages, 7);
+elemes(totalPages, currentPage);
+
+
+
+
+ulTag.addEventListener('click', function(e) {
+  e.preventDefault();
+  let btn = e.target.closest('li'), 
+  param = btn.dataset.pagination,
+  btnNumb = btn.classList.contains('pagination__numb')
+  
+  //btnPrev = btnNumb.previousElementSibling,
+  //btnNext = btnNumb.nextElementSibling
+  //console.log(btnPrev);
+  //btnNumb = document.querySelector('.active'),
+  //btnNumb = btn.classList.contains('.active')
+  
+  //btnPrev = btnNumb - 1, 
+  //btnNext = btnNumb + 1 
+  
+  
+  if (param) {
+    currentPage = currentPage + +param } 
+
+  else if (btnNumb = currentPage - 1) {
+    currentPage = currentPage - 1 
+  } 
+
+  else if (btnNumb = currentPage + 1) {
+    currentPage = currentPage + 1 
+  } 
+
+   
+  
+    
+  //if(!btn || !param) return;
+  //if (param) {
+   //currentPage = currentPage + +param} 
+   //else if (btnPrev) {currentPage = currentPage + 1}
+   //else if (btnNext) {currentPage = currentPage - 1}
+   //else if (currentPage <= 0) {currentPage = 1}*/
+   
+   elemes(totalPages, currentPage)
 
 });
+
+
+});
+
+//
+
+
 
 

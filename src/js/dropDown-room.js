@@ -1,9 +1,11 @@
+const { data } = require("jquery");
 
 $('.dropDown__select').find('.dropDown__list .dropDown__list-option').each(function(){ // Проходим по всем .-option
   let data = { // Они содержат в себе атрибуты `data-`, получим их значения в массив:
     min: Number($(this).attr('data-min')),
     val: Number($(this).attr('data-val')) || 0,
-    max: Number($(this).attr('data-max'))
+    max: Number($(this).attr('data-max')),
+    title: $(this).attr('data-title')
   };
   
   // Некая защита, чтобы не было значения больше максимального или меньше минимального.
@@ -11,7 +13,7 @@ $('.dropDown__select').find('.dropDown__list .dropDown__list-option').each(funct
   if(data.val >= data.max) data.val = data.max;
   
   // Так как "изначальная" запись `.-option` у нас упрощённая, то мы наполняем её содержимым, для того же изменения значений.
-  $(this).html('<div class="dropDown__subtitle">'+$(this).attr('data-title')+'</div>\
+  $(this).html('<div class="dropDown__subtitle">'+data.title+'</div>\
     <div class="-input">\
       <div class="dropDown__btn'+(data.val <= data.min ? ' --disabled' : '')+'" data-action="minus">-</div>\
       <div class="-value">'+data.val+'</div>\
@@ -67,44 +69,62 @@ $('.dropDown__select').on('click', '.dropDown__btn', function(){
 // ..Вот эту
 function NumGuests() {
   // Это то самое, что выводим в "шапку селектора" сообщение о количестве "гостей".
-    let bRooms = 0, beds = 0, baths = 0; text = '', total = 0, output = {};
+    let text = 'Что входит в номер', output = {};
     
   // Проходим по всем .-option и получаем значение
   $('.dropDown__select').find('.dropDown__list .dropDown__list-option').each(function(){
-    //let i;
+    let val = Number($(this).attr('data-val'));     
+      output[$(this).attr('data-type')] = val;
+      if (val == 0) {
+        delete output[$(this).attr('data-type')]//убрать из объекта  элемент
+      }    
 
-    //let rooms = ($(this)[i]).data('Спальни');
-    //alert(($(this)[i]));
-
-    let val = Number($(this).attr('data-val')) || 0;
-    
-    
-    output[$(this).data('title'), $(this).data('Кровати'), $(this).data('Ванные комнаты')] = val;
-    /*total = bRooms + beds + baths;
-    total += val;*/ // Прибавляем к guests
-    //bRooms += val;
   });
   
-  // Если гостей больше 0, то..
+  
+  // Если удобств больше 0, то..
 
-  if(bRooms > 0) {
-    text = bRooms+' '+declOfNum(bRooms, ['спальня', 'спальни', 'спален']);
-  /*if(total > 0) {
-    text = bRooms+' '+declOfNum(bRooms, ['спальня', 'спальни', 'спален']) + ',' + ' ' + beds +' '+declOfNum(beds, ['кровать', 'кровати', 'кроватей']) + ',' + ' ' + baths +' '+declOfNum(baths, ['ванная', 'ванные', 'ванн']) ;*/ // Оформляем сообщение
+  
+    /*if(output.brooms > 0) {
+    
+        text = output.brooms+' '+declOfNum(output.brooms, ['спальня', 'спальни', 'спален']) 
+       }
+      
+        
+    else if (output.beds > 0 ) {
+      text = output.beds +' '+declOfNum(output.beds, ['кровать', 'кровати', 'кроватей']) 
+        }
+
+    else if (output.baths > 0 ) {
+      text = output.baths +' '+declOfNum(output.baths, ['ванная', 'ванные', 'ванн'])
+        
+
+      $('.dropDown__select').find('.dropDown__btn[data-action="clear"]').removeClass('--disabled'); }*/   
+
+    
+
+    if(output.brooms > 0 || output.beds > 0 || output.baths > 0) {
+      text = output.brooms+' '+declOfNum(output.brooms, ['спальня', 'спальни', 'спален']) + ',' + ' ' + output.beds +' '+declOfNum(output.beds, ['кровать', 'кровати', 'кроватей']) + ',' + ' ' + output.baths +' '+declOfNum(output.baths, ['ванная', 'ванные', 'ванн']) ;
+
+      
     $('.dropDown__select').find('.dropDown__btn[data-action="clear"]').removeClass('--disabled'); // Показываем кнопку "Очистить"
-  } else {
+  } 
+  
+  
+  else {
     text = 'Что входит в номер'; // Дефолтное сообщение о количестве гостей, даём понять пользователю, что нужно заполнить этот "селектор"
+
     $('.dropDown__select').find('.dropDown__btn[data-action="clear"]').addClass('--disabled'); // Скрываем кнопку "Очистить", ибо зачем она нам, ведь гостей нет..
   }
   //
   $('.dropDown__select').find('.dropDown__label .dropDown__title').text(text);
-  $('.dropDown__select').attr('data-guests', total);
+  //$('.dropDown__select').attr('data-guests', total);
   $('.dropDown__select').find('.dropDown__btn[data-action="apply"]').addClass('--disabled'); // прячем кнопку "применить", ибо мы только что изменили данные
   //
-  console.clear();
+  //console.clear();
   console.info(output); // Выходные данные в виде объекта
-  $('.dropDown__select').find('.dropDown__output').val(JSON.stringify(output)); // Мы добавляем эти данные в input, который находится в теле селектора, предварительно "конвертим" объект в строку,  на сервере мы можем их распарсить.
-} NumGuests();
+  $('.dropDown__select').find('.dropDown__output').val(JSON.stringify(output));} // Мы добавляем эти данные в input, который находится в теле селектора, предварительно "конвертим" объект в строку,  на сервере мы можем их распарсить.
+ NumGuests();
 
 // Этот код склоняет фразу `n гост[ь,я,ей]`, тем самым делая селектор "живее".
 function declOfNum(number,titles){ 

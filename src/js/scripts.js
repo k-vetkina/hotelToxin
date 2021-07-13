@@ -5,7 +5,7 @@ import * as datePicker from '../components/dateDropDown/dateDropDown';
 import * as rangeslider from '../components/rangeslider/rangeslider';
 import * as slider from '../components/slider/slider';
 import * as likeBtn from '../components/likeBtn/likeBtn';
-import {elemes} from '../components/pagination/pagination';
+//import {elemes} from '../components/pagination/pagination';
 import * as pagination from '../components/pagination/pagination';
 import * as extraAdvs from '../components/extraAdvs/extraAdvs';
 import * as roomPicker from '../components/roomDropDown/roomDropDown';

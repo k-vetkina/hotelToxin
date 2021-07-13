@@ -1,9 +1,7 @@
 .btn {    
   display: flex;
   justify-content: center;
-  align-items: center;
-  //min-width: 196px;
-  //height: 34px;
+  align-items: center;  
   border: 1px solid @color_purple-light;
   border-radius: 35px;
   color: white;
@@ -16,6 +14,7 @@
   text-decoration: none;
   padding: 5px 19px; 
   box-sizing: border-box;
+  
   
   &:active {
     opacity: 0.5;
@@ -47,12 +46,22 @@
     //padding: 0px 5px;
     background-image: linear-gradient(white, white), linear-gradient(#BC9CFF, #8BA4F9);
     background-origin: border-box;
-    background-clip: padding-box, border-box;    
+    background-clip: padding-box, border-box; 
+    
+    
   }
 
+  &-transparent:hover,
+  &-transparent:active,
+  &-transparent:focus {
+      opacity: 1;    
+      background-image: linear-gradient(white, white), linear-gradient(rgba(188, 156, 255, .5), rgba(139, 164, 249, .5));      
+    }
+
+  
   &-withArrow {
-    width: 100%;
-    min-height: 44px; 
+    padding: 14px;
+    //min-height: 44px; 
     position: relative; 
   }
 

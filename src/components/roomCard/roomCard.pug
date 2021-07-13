@@ -1,21 +1,30 @@
-block variables 
+//block variables 
+mixin roomCard(params) 
 
-.roomCard(class={'mainSearch__roomCard': mainSearch})
+
+  //.roomCard(class={'mainSearch__roomCard': mainSearch})
   
-  .roomCard__pic 
+  include ../slider/slider
+  //include ../roomCard__pic/roomCard__pic
+  //+roomCard__pic(params.image)
+  
   include ../roomHeader/roomHeader 
-  +roomHeader('roomHeader__roomCard', '888', 'люкс', '9 990₽', 'в сутки')
+  +roomHeader(params.class, params.number, params.type, params.price, params.costPer)
     
-  .roomCard__line
+  .roomCard__line 
   .roomCard__bottom
     .roomCard__rateBtns
+
       include ../rateBtn/rateBtn
-      +rateBtn('colored', 'star')
-      +rateBtn('colored', 'star')
-      +rateBtn('colored', 'star')
-      +rateBtn('colored', 'star')
-      +rateBtn('colored', 'star')
+      - 
+        let startStars = 1;
+        let classActive = "colored";
+      while startStars <= 5
+        - if(params.star < startStars) {classActive = "uncolored";}        
+        +rateBtn(classActive)
+        - startStars++;      
+      
     p.roomCard__halfData
-      span.roomCard__cost 145 
-      span.roomCard__feedback Отзывов
+      span.roomCard__cost= params.nFeedback  
+      span.roomCard__feedback= params.feedback
           
