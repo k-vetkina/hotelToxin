@@ -70,6 +70,12 @@ $('.dropDown__select').on('click', '.dropDown__btn', function(){
 function NumGuests() {
   // Это то самое, что выводим в "шапку селектора" сообщение о количестве "гостей".
     let text = 'Что входит в номер', output = {};
+    const dataTranslate = {
+      brooms: ['спальня', 'спальни', 'спален'],
+      beds: ['кровать', 'кровати', 'кроватей'],
+      baths: ['ванная', 'ванные', 'ванн']
+
+    }
     
   // Проходим по всем .-option и получаем значение
   $('.dropDown__select').find('.dropDown__list .dropDown__list-option').each(function(){
@@ -81,30 +87,17 @@ function NumGuests() {
 
   });
   
-  
-  // Если удобств больше 0, то..
+   
 
-  
-    /*if(output.brooms > 0) {
-    
-        text = output.brooms+' '+declOfNum(output.brooms, ['спальня', 'спальни', 'спален']) 
-       }
+ 
+  if(output.brooms > 0 || output.beds > 0 || output.baths > 0) {
+    text = '';
+      for (let item in output) {
+        text += `${output[item]} ${declOfNum(output[item], dataTranslate[item])},` 
+
+      }
+      text = text.slice(0,-1)
       
-        
-    else if (output.beds > 0 ) {
-      text = output.beds +' '+declOfNum(output.beds, ['кровать', 'кровати', 'кроватей']) 
-        }
-
-    else if (output.baths > 0 ) {
-      text = output.baths +' '+declOfNum(output.baths, ['ванная', 'ванные', 'ванн'])
-        
-
-      $('.dropDown__select').find('.dropDown__btn[data-action="clear"]').removeClass('--disabled'); }*/   
-
-    
-
-    if(output.brooms > 0 || output.beds > 0 || output.baths > 0) {
-      text = output.brooms+' '+declOfNum(output.brooms, ['спальня', 'спальни', 'спален']) + ',' + ' ' + output.beds +' '+declOfNum(output.beds, ['кровать', 'кровати', 'кроватей']) + ',' + ' ' + output.baths +' '+declOfNum(output.baths, ['ванная', 'ванные', 'ванн']) ;
 
       
     $('.dropDown__select').find('.dropDown__btn[data-action="clear"]').removeClass('--disabled'); // Показываем кнопку "Очистить"

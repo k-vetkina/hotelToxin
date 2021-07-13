@@ -1,12 +1,15 @@
-.pagination {
+.container {
+  max-width: 326px;
   display: flex;
-  margin-bottom: 10px;
-  
-
+  flex-direction: column;
+  align-items: center;
+  //justify-content: center;
   margin-left: 40px; //позиционирование для ui-кита
   margin-top: 40px; //позиционирование для ui-кита
-  
-  
+}
+.pagination {
+  display: flex;
+  margin-bottom: 10px;  
   align-items: stretch;
   justify-content: center;
 
@@ -50,9 +53,9 @@
 
 &__text {
   display: inline-block;
-  margin-left: 40px; //позиционирование для ui-кита 
+  //margin-left: 40px; //позиционирование для ui-кита 
   margin-bottom: 20px; //позиционирование для ui-кита  
-  text-align: center;
+  //text-align: center;
 }
 
 &__btnPrev {

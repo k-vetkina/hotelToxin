@@ -20,7 +20,7 @@ liTag += `<li class="pagination__btnPrev" data-pagination="-1">
 }
 
 if(currentPage > 2){ //if page value is less than 2 then add 1 after the previous button
-  liTag += `<li class="pagination__item pagination__numb"><span class="pagination__val">1</span></li>`; 
+  liTag += `<li class="pagination__item pagination__numb" data-pagination="first"><span class="pagination__val">1</span></li>`; 
   if(currentPage > 3){
     liTag += `<li class="pagination__item pagination__dots"><span class="pagination__val">...</span></li>`;}
 
@@ -51,7 +51,7 @@ for(let pageLength = beforePages; pageLength <= afterPages; pageLength++ ) {
    } else {
     activeLi = '';
    }
-  liTag += `<li class="pagination__item pagination__numb ${activeLi}"><span class="pagination__val">${pageLength}</span></li>`
+  liTag += `<li class="pagination__item pagination__numb ${activeLi}" data-pagination="${pageLength - currentPage}"><span class="pagination__val">${pageLength}</span></li>`
 }
 
 if(currentPage < totalPages - 1){ 
@@ -59,7 +59,7 @@ if(currentPage < totalPages - 1){
 if(currentPage < totalPages - 2) {
   liTag += `<li class="pagination__item pagination__dots"><span class="pagination__val">...</span></li>`;}
 
-  liTag += `<li class="pagination__item pagination__numb"><span class="pagination__val">${totalPages}</span></li>`; 
+  liTag += `<li class="pagination__item pagination__numb" data-pagination="last"><span class="pagination__val">${totalPages}</span></li>`; 
 
 }
 
@@ -84,40 +84,21 @@ elemes(totalPages, currentPage);
 ulTag.addEventListener('click', function(e) {
   e.preventDefault();
   let btn = e.target.closest('li'), 
-  param = btn.dataset.pagination,
-  btnNumb = btn.classList.contains('pagination__numb')
-  
-  //btnPrev = btnNumb.previousElementSibling,
-  //btnNext = btnNumb.nextElementSibling
-  //console.log(btnPrev);
-  //btnNumb = document.querySelector('.active'),
-  //btnNumb = btn.classList.contains('.active')
-  
-  //btnPrev = btnNumb - 1, 
-  //btnNext = btnNumb + 1 
-  
-  
-  if (param) {
-    currentPage = currentPage + +param } 
-
-  else if (btnNumb = currentPage - 1) {
-    currentPage = currentPage - 1 
-  } 
-
-  else if (btnNumb = currentPage + 1) {
-    currentPage = currentPage + 1 
-  } 
-
-   
-  
+  param = btn.dataset.pagination
     
-  //if(!btn || !param) return;
-  //if (param) {
-   //currentPage = currentPage + +param} 
-   //else if (btnPrev) {currentPage = currentPage + 1}
-   //else if (btnNext) {currentPage = currentPage - 1}
-   //else if (currentPage <= 0) {currentPage = 1}*/
-   
+  if(!btn || !param) return;
+  
+  switch(param){
+    case 'first':
+      currentPage = 1;
+      break; 
+    case 'last':
+      currentPage = totalPages; 
+      break;
+    default:
+      currentPage += +param;
+  }   
+
    elemes(totalPages, currentPage)
 
 });
@@ -125,7 +106,7 @@ ulTag.addEventListener('click', function(e) {
 
 });
 
-//
+
 
 
 

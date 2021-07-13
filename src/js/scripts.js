@@ -1,14 +1,14 @@
 import * as dateBirth from '../components/fieldInput/fieldInput';
-import * as guestPicker from './guests-number';
+import * as guestPicker from './dropDown-guest';
 import * as dropDownRoom from './dropDown-room';
 import * as datePicker from '../components/dateDropDown/dateDropDown';
 import * as rangeslider from '../components/rangeslider/rangeslider';
 import * as slider from '../components/slider/slider';
 import * as likeBtn from '../components/likeBtn/likeBtn';
-//import {elemes} from '../components/pagination/pagination';
+
 import * as pagination from '../components/pagination/pagination';
 import * as extraAdvs from '../components/extraAdvs/extraAdvs';
-import * as roomPicker from '../components/roomDropDown/roomDropDown';
+//import * as roomPicker from '../components/roomDropDown/roomDropDown';
 //import * as radioBtn from '../components/radioBtn/radioBtn';
 
 

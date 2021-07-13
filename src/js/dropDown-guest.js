@@ -3,7 +3,8 @@ $('.guestDropDown__select').find('.guestDropDown__list .guestDropDown__list-opti
   let data = { // Они содержат в себе атрибуты `data-`, получим их значения в массив:
     min: Number($(this).attr('data-min')),
     val: Number($(this).attr('data-val')) || 0,
-    max: Number($(this).attr('data-max'))
+    max: Number($(this).attr('data-max')),
+    title: $(this).attr('data-title')
   };
   
   // Некая защита, чтобы не было значения больше максимального или меньше минимального.
@@ -67,17 +68,30 @@ $('.guestDropDown__select').on('click', '.guestDropDown__btn', function(){
 // ..Вот эту
 function NumGuests() {
   // Это то самое, что выводим в "шапку селектора" сообщение о количистве "гостей".
-    let guests = 0, text = '', output = {};
+    text = 'Сколько гостей', output = {};
+    const dataTranslate = {
+      adults: ['взрослый', 'взрослых'],
+      kids: ['ребенок', 'ребенка', 'детей'],
+      babies: ['младенец', 'младенца', 'младенцев']
+    }
   // Проходим по всем .-option и получаем значение
   $('.guestDropDown__select').find('.guestDropDown__list .guestDropDown__list-option').each(function(){
     let val = Number($(this).attr('data-val')) || 0;
-    output[$(this).attr('data-title')] = val;
-    guests += val; // Прибавляем к guests
+    output[$(this).attr('data-type')] = val;
+    if (val == 0) {
+      delete output[$(this).attr('data-type')]//убрать из объекта  элемент
+    }   
   });
   
   // Если гостей больше 0, то..
-  if(guests > 0) {
-    text = guests+' '+declOfNum(guests, ['гость', 'гостя', 'гостей']); // Оформляем сообщение
+  if(output.adults > 0 || output.kids > 0 || output.babies > 0) {
+    text = '';
+      for (let item in output) {
+        text += `${output[item]} ${declOfNum(output[item], dataTranslate[item])},` 
+
+      }
+      text = text.slice(0,-1)
+
     $('.guestDropDown__select').find('.guestDropDown__btn[data-action="clear"]').removeClass('--disabled'); // Показываем кнопку "Очистить"
   } else {
     text = 'Сколько гостей'; // Дефолтное сообщение о количестве гостей, даём понять пользователю, что нужно заполнить этот "селектор"
@@ -85,7 +99,7 @@ function NumGuests() {
   }
   //
   $('.guestDropDown__select').find('.guestDropDown__label .guestDropDown__title').text(text);
-  $('.guestDropDown__select').attr('data-guests', guests);
+  //$('.guestDropDown__select').attr('data-guests', guests);
   $('.guestDropDown__select').find('.guestDropDown__btn[data-action="apply"]').addClass('--disabled'); // прячем кнопку "применить", ибо мы только что изменили данные
   //
   console.clear();
